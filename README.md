@@ -10,96 +10,183 @@ Color Pallette:
 #ffbd5b
 #f9f871
 
-# README: Ny Nettside for 06565 Taxi
+Greit, her er et teknisk utkast til en `README.md` for det nye prosjektet for 06565 Taxi. Denne versjonen er strippet for grunnleggende forklaringer og fokuserer på arkitektur, implementeringsstrategi og en avansert CI/CD-pipeline uten Vercel.
 
-Dette dokumentet beskriver den tekniske stacken og arkitekturen for den nye nettsiden til 06565 Taxi. Målet er å bygge en moderne, rask og brukervennlig nettside som er enkel å vedlikeholde og rustet for fremtiden.
+-----
 
-## 1\. Teknisk Stack (Tech Stack)
+# README: 06565 Taxi - Next Generation Web Platform
 
-Vi velger en moderne JAMstack-tilnærming. Det gir oss en lynrask, sikker og skalerbar nettside.
+## 1\. Architectural Overview
 
-### **Frontend: Next.js (React)**
+This project implements a decoupled web application for 06565 Taxi, built on a modern JAMstack and serverless architecture. The primary goals are sub-second performance, high scalability, and a superior developer experience (DX).
 
-  * **Hva er det?** Next.js er et rammeverk bygget på toppen av React, det mest populære biblioteket for å bygge brukergrensesnitt.
-  * **Hvorfor Next.js?**
-      * **Fantastisk Ytelse:** Siden kan bygges som statiske filer (Static Site Generation - SSG), noe som gjør den ekstremt rask å laste for brukeren. Dette er perfekt for en tjeneste som taxi, hvor kunden vil ha informasjon umiddelbart.
-      * **Søkemotoroptimalisering (SEO):** Next.js har innebygget støtte for Server-Side Rendering (SSR) og SSG, som gjør det enkelt for Google å indeksere siden og rangere den høyt i søkeresultatene.
-      * **Moderne Utvikleropplevelse:** Gir en strukturert og effektiv måte å bygge nettsiden på, med funksjoner som filbasert ruting, bildeoptimalisering og API-ruter.
+The architecture utilizes Next.js as a hybrid framework, leveraging Static Site Generation (SSG) for content-heavy pages (blog, info pages) and Server-Side Rendering (SSR) or client-side rendering (CSR) for dynamic, interactive features like booking and price calculation. Next.js API Routes function as a Backend-for-Frontend (BFF), abstracting and securing communication with third-party services like the booking system and the headless CMS.
 
-### **Styling: Tailwind CSS**
+-----
 
-  * **Hva er det?** Et "utility-first" CSS-rammeverk som lar oss bygge design direkte i HTML-koden.
-  * **Hvorfor Tailwind CSS?**
-      * **Rask Prototyping og Utvikling:** Vi kan bygge et moderne og responsivt design uten å skrive masse egen CSS-kode.
-      * **Konsistent Design:** Sikrer at designelementer (farger, avstand, skriftstørrelser) er konsistente over hele nettsiden.
-      * **Optimalisert for Ytelse:** Fjerner automatisk all ubrukt CSS, noe som resulterer i en veldig liten filstørrelse.
+## 2\. Core Technology Stack
 
-### **Innholdsadministrasjon (CMS): Headless CMS (f.eks. Sanity.io)**
+  * **Framework**: Next.js 14+ (App Router)
+  * **Language**: TypeScript
+  * **Styling**: Tailwind CSS with Radix UI for unstyled, accessible components.
+  * **State Management**: Zustand for minimal, hook-based client-side state management.
+  * **Content Management**: Sanity.io (Headless CMS)
+  * **Database**: PostgreSQL (via Supabase/Neon) for potential future features requiring persistent data beyond the CMS.
+  * **ORM**: Prisma
+  * **Validation**: Zod for end-to-end type-safe data validation (client form -\> BFF -\> external services).
+  * **Deployment**: Docker container deployed on Google Cloud Run (or AWS Fargate).
+  * **CI/CD**: GitHub Actions.
 
-  * **Hva er det?** Et "Headless" CMS er et system for innholdsstyring hvor innholdet er frikoblet fra presentasjonen. Vi bruker det som en database for alt innhold (tekster, priser, nyheter) og henter det ut via et API.
-  * **Hvorfor et Headless CMS?**
-      * **Fleksibilitet:** 06565 Taxi kan enkelt oppdatere innhold (f.eks. endre priser, legge til en nyhet om appen) uten å måtte kontakte en utvikler.
-      * **Fremtidsrettet:** Det samme innholdet kan enkelt gjenbrukes i andre kanaler, som f.eks. mobilappen "TaxiFix", infoskjermer eller fremtidige plattformer.
-      * **Sanity.io** er et godt valg fordi det er veldig fleksibelt, har en god gratis-tier og gir en sanntids redigeringsopplevelse.
+-----
 
-### **Hosting/Deploy: Vercel**
+## 3\. Feature Implementation Strategy
 
-  * **Hva er det?** En skyplattform laget av teamet bak Next.js, spesialisert for å hoste moderne webapplikasjoner.
-  * **Hvorfor Vercel?**
-      * **Optimalisert for Next.js:** Gir den beste ytelsen og de enkleste arbeidsflytene for Next.js-prosjekter.
-      * **Automatisk Deploy:** Kobles direkte til GitHub. Hver gang vi pusher ny kode til `main`-branchen, bygges og publiseres nettsiden automatisk.
-      * **Globalt CDN:** Sørger for at nettsiden laster raskt for brukere uansett hvor de er i verden.
-      * **Gratis for små prosjekter:** Har en generøs gratisplan som passer perfekt for dette prosjektet.
+### a. Online Booking & Map Integration
 
-## 2\. Prosjektstruktur (Foreslått)
+The booking module is a critical, interactive component requiring robust state management and external API communication.
 
+  * **Frontend Component**:
+
+      * A multi-step form built as a single React Server Component (RSC) containing multiple Client Components.
+      * State is managed by **Zustand**, handling form steps, user input, and API responses (loading/error states).
+      * Form validation is handled client-side using **React Hook Form** with a **Zod** schema.
+      * Map integration uses **`@vis.gl/react-google-maps`**. Address inputs will leverage the Google Maps Autocomplete service. A `debounce` function will be used to prevent excessive API calls during user input. Reverse geocoding will populate address fields when a user clicks directly on the map.
+
+  * **Backend-for-Frontend (BFF)**:
+
+      * A Next.js Route Handler (`/api/booking/create`) will serve as the endpoint.
+      * The handler will re-validate the incoming payload against the same Zod schema used on the client for full-stack validation.
+      * It will securely call the external `06565 Booking System API` using a server-only API key stored in environment variables. This abstracts the third-party API from the client, enhancing security.
+      * Responses from the booking API will be formatted and returned to the client.
+
+### b. Interactive Price Calculator
+
+This feature provides an estimated fare based on route, time, and vehicle type.
+
+  * **Frontend Component**:
+
+      * Reuses the same map and address input components from the booking module.
+      * Additional inputs for time of day (affects pricing tiers) and vehicle type (standard, maxi, etc.).
+
+  * **BFF Endpoint**:
+
+      * An API route (`/api/pricing/calculate`) will receive start/end coordinates, timestamp, and vehicle type.
+      * It will first call the **Google Maps Distance Matrix API** to get the optimal route distance and estimated travel time.
+      * The fare calculation logic will then be executed server-side based on predefined business rules (start fee, price per km, time-based tariffs, etc.). This logic resides solely on the server to protect business-sensitive pricing models.
+      * The calculated estimate is returned to the client for display.
+
+### c. Blog/News Module
+
+This section will be highly optimized for SEO and performance using Static Site Generation.
+
+  * **CMS (Sanity.io)**:
+
+      * Schema definitions for `post`, `author`, and `category`.
+      * Leverages Portable Text for rich content editing.
+      * Webhooks will be configured to trigger on-demand revalidation in Next.js upon content changes.
+
+  * **Frontend Implementation**:
+
+      * The main blog page (`/nyheter`) will be statically generated (SSG) at build time using `generateStaticParams`.
+      * Individual blog posts will use dynamic routes (`/nyheter/[slug]`). Each page will be statically generated.
+      * **Incremental Static Revalidation (ISR)** will be enabled. Pages will be re-generated automatically in the background after a certain time (`revalidate` tag) or when a Sanity webhook is triggered, ensuring content is always fresh without requiring a full site rebuild.
+
+-----
+
+## 4\. Infrastructure & CI/CD Pipeline (Non-Vercel)
+
+Deployment is managed through a containerized workflow using Docker and GitHub Actions, targeting a serverless container platform.
+
+### a. Containerization (Dockerfile)
+
+A multi-stage `Dockerfile` is used to create an optimized, production-ready image.
+
+```dockerfile
+# Stage 1: Dependencies
+FROM node:18-alpine AS deps
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+# Stage 2: Builder
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN yarn build
+
+# Stage 3: Runner
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+EXPOSE 3000
+CMD ["yarn", "start"]
 ```
-/06565-taxi-website
-├── /components         # Gjenbrukbare React-komponenter (Button, Header, Footer, etc.)
-├── /pages              # Sidene på nettstedet (index.js for forsiden, priser.js, etc.)
-│   ├── /api            # API-ruter for f.eks. kontaktskjema
-├── /public             # Statiske filer som bilder, logoer og fonter
-├── /styles             # Globale stiler og Tailwind CSS-konfigurasjon
-├── /studio             # (Hvis Sanity brukes) Innholdsstudio for CMS
-├── package.json        # Prosjektavhengigheter og scripts
-└── README.md           # Denne filen
+
+### b. CI/CD with GitHub Actions
+
+The workflow file `.github/workflows/deploy.yml` automates the entire deployment process.
+
+  * **Trigger**: Pushes to the `main` branch.
+  * **Jobs**:
+    1.  **Lint & Test**: Runs ESLint, Prettier, and Jest/Vitest tests.
+    2.  **Build & Push**:
+          * Authenticates with Google Cloud (or AWS).
+          * Builds the Docker image using the `Dockerfile`.
+          * Tags the image with the commit SHA.
+          * Pushes the image to a container registry (e.g., Google Artifact Registry).
+    3.  **Deploy**:
+          * Uses the `gcloud` CLI to deploy the newly pushed image to **Cloud Run**.
+          * Manages environment variables using Google Secret Manager.
+          * Ensures zero-downtime deployments by gradually shifting traffic to the new revision.
+
+**Example `deploy.yml` snippet:**
+
+```yaml
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # ... (steps for auth, build, push to Artifact Registry) ...
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v1
+        with:
+          service: 'taxi-06565-web'
+          region: 'europe-north1'
+          image: 'europe-north1-docker.pkg.dev/PROJECT_ID/REPO/IMAGE:${{ github.sha }}'
+          # env_vars from Google Secret Manager
 ```
 
-## 3\. Kom i gang (Getting Started)
+-----
 
-### Forutsetninger
+## 5\. Local Development
 
-  * Node.js (versjon 18 eller nyere)
-  * En `package manager` som `npm` eller `yarn`
-
-### Installasjon
-
-1.  **Klone repoet:**
-
+1.  **Clone the repository.**
+2.  **Install dependencies**:
     ```bash
-    git clone [URL-til-ditt-repo]
-    cd 06565-taxi-website
+    yarn install
     ```
-
-2.  **Installer avhengigheter:**
-
+3.  **Set up environment variables**:
+      * Copy `.env.example` to `.env.local`.
+      * Populate with necessary keys (Google Maps API, Sanity project ID, Booking API endpoint/key).
+4.  **Run the development server**:
     ```bash
-    npm install
+    yarn dev
     ```
-
-3.  **Kjør utviklingsserveren:**
-
-    ```bash
-    npm run dev
-    ```
-
-Åpne [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) i nettleseren din for å se resultatet.
-
-## 4\. Fremtidige Muligheter
-
-Denne stacken gir et solid fundament for videre utvikling. Noen muligheter inkluderer:
-
-  * **Online Booking:** Bygge et enkelt bestillingsskjema som integreres med 06565 sitt bookingsystem via et API.
-  * **Priskalkulator:** En interaktiv kalkulator for å estimere prisen på en tur.
-  * **Blogg/Nyheter:** Enkel publisering av nyheter om selskapet, nye biler, eller hendelser i Lillehammer.
-  * **Integrasjon med Kart:** Vise sanntidsposisjon for biler (krever mer avansert backend).
+5.  **Access the application** at `http://localhost:3000`.
