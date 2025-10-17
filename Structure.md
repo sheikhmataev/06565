@@ -1,4 +1,4 @@
-## Oslo Taxi Website - Complete Structure Plan
+## Lillehammer Taxi Website - Complete Structure Plan
 
 ### **1. Main Pages & Navigation Structure**
 
@@ -28,7 +28,7 @@
 │                    Header/Navigation                     │
 ├─────────────────────────────────────────────────────────┤
 │                    Hero Section                         │
-│  - Main headline with Oslo Taxi branding               │
+│  - Main headline with Lillehammer Taxi branding               │
 │  - Quick booking form (pickup/destination)             │
 │  - Call-to-action buttons                              │
 ├─────────────────────────────────────────────────────────┤
