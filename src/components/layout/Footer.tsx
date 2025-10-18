@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram } from 'lucide-react';
+import { Facebook, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold text-accent-3 mb-4">Lillehammer Taxi</h3>
           <p className="text-gray-300">
-            Din pålitelige, raske og komfortable transportpartner i Lillehammer-regionen. Alltid tilgjengelig, 24/7.
+          Rask, trygg og tilgjengelig 24/7
           </p>
         </div>
         {/* Quick Links */}
@@ -26,17 +26,18 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold text-accent-3 mb-4">Kontakt Oss</h3>
           <ul className="space-y-2 text-gray-300">
-            <li>Telefon: <a href="tel:06565" className="hover:text-accent-2">06565</a></li>
-            <li>E-post: <a href="mailto:booking@06565.no" className="hover:text-accent-2">post@06565.no</a></li>
-            <li>Adresse: Oskar Skoglys Veg 1, 2619 Lillehammer</li>
+            <li>Norge: <a href="tel:06565" className="hover:text-accent-2">06565</a></li>
+            <li>Utland: <a href="tel:+4761222020" className="hover:text-accent-2">+47 61 22 20 20</a></li>
+            <li>E-post: <a href="mailto:booking@06565.no" className="hover:text-accent-2">booking@06565.no</a></li>
+            <li>Adresse: Oskar skoglys veg 1, 2619</li>
           </ul>
         </div>
         {/* Social Media */}
         <div>
           <h3 className="text-xl font-bold text-accent-3 mb-4">Følg Oss</h3>
           <div className="flex space-x-4">
-            <Link href="#" className="hover:text-accent-2 transition-transform hover:scale-110"><Facebook /></Link>
-            <Link href="#" className="hover:text-accent-2 transition-transform hover:scale-110"><Twitter /></Link>
+            <Link href="https://www.facebook.com/06565LillehammerTaxisentral" className="hover:text-accent-2 transition-transform hover:scale-110"><Facebook /></Link>
+            <Link href="https://www.linkedin.com/company/06565drosjene" className="hover:text-accent-2 transition-transform hover:scale-110"><Linkedin /></Link>
             <Link href="#" className="hover:text-accent-2 transition-transform hover:scale-110"><Instagram /></Link>
           </div>
         </div>
