@@ -3,13 +3,16 @@
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
+type AnimationVariant = 'fadeInUp' | 'fadeInUpWithRotate';
+
 interface AnimateOnScrollProps {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  animationType?: AnimationVariant;
 }
 
-export default function AnimateOnScroll({ children, delay = 0, className }: AnimateOnScrollProps) {
+export default function AnimateOnScroll({ children, delay = 0, className, animationType = 'fadeInUp' }: AnimateOnScrollProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const controls = useAnimation();
@@ -20,15 +23,22 @@ export default function AnimateOnScroll({ children, delay = 0, className }: Anim
     }
   }, [isInView, controls]);
 
-  const variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        delay: delay,
+  const animationVariants = {
+    fadeInUp: {
+      hidden: { opacity: 0, y: 50 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: 'easeOut', delay },
+      },
+    },
+    fadeInUpWithRotate: {
+      hidden: { opacity: 0, y: 50, rotate: -5 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        rotate: 0,
+        transition: { duration: 0.6, ease: 'easeOut', delay },
       },
     },
   };
@@ -36,7 +46,7 @@ export default function AnimateOnScroll({ children, delay = 0, className }: Anim
   return (
     <motion.div
       ref={ref}
-      variants={variants}
+      variants={animationVariants[animationType]}
       initial="hidden"
       animate={controls}
       className={className}

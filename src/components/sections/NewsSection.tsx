@@ -27,7 +27,7 @@ const posts = [
 
 export default function NewsSection() {
   return (
-    <section className="bg-white py-20 overflow-hidden">
+    <section className="bg-white py-20">
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-12">

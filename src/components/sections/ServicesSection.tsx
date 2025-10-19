@@ -37,7 +37,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-white py-20 overflow-hidden">
+    <section className="bg-gray-50 pt-12 pb-10">
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-12">
@@ -47,7 +47,7 @@ export default function ServicesSection() {
         </AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <AnimateOnScroll key={index} delay={index * 0.1}>
+            <AnimateOnScroll key={index} delay={index * 0.1} animationType="fadeInUpWithRotate">
               <ServiceCard icon={service.icon} title={service.title} description={service.description} />
             </AnimateOnScroll>
           ))}

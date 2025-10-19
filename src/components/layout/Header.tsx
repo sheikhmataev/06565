@@ -12,8 +12,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-primary-1 text-white shadow-md sticky top-0 z-40">
-        <div className="container mx-auto flex items-center justify-between p-4">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-primary-1/80 backdrop-blur-lg shadow-md">
+        <div className="container mx-auto flex items-center justify-between p-4 text-white">
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/Assets/Logo.png" alt="Lillehammer Taxi Logo" width={50} height={50} />
             <span className="text-xl font-bold text-accent-3">06565 Taxi</span>

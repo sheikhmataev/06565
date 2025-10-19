@@ -19,3 +19,9 @@
     transform: translateY(0);
   }
 }
+
+.subtle-gradient-bg {
+  background-color: #f8fafc; /* A fallback color */
+  background-image: radial-gradient(circle at top left, theme('colors.primary-1 / 2%'), transparent 30%),
+                    radial-gradient(circle at bottom right, theme('colors.accent-1 / 2%'), transparent 30%);
+}

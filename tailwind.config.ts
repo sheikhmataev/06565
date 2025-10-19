@@ -15,6 +15,10 @@ const config: Config = {
         'accent-1': '#ef875e',
         'accent-2': '#ffbd5b',
         'accent-3': '#f9f871',
+      },
+      boxShadow: {
+        'custom-soft': '0 10px 30px -15px rgba(82, 42, 91, 0.2), 0 4px 6px -2px rgba(82, 42, 91, 0.05)',
+        'custom-soft-hover': '0 20px 40px -15px rgba(82, 42, 91, 0.3), 0 8px 10px -4px rgba(82, 42, 91, 0.1)',
       }
     },
   },
