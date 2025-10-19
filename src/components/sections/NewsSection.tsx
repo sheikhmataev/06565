@@ -10,18 +10,18 @@ const posts = [
     excerpt: "Vi er stolte av å kunngjøre at vi har fått med Malik R. Dagijev som vår nyeste sjåfør i Øyer. Med bare 6 prikker på rullebladet har han massse igjen å gå på!",
   },
   {
-    image: "/assets/news-2.jpg",
+    image: "/assets/samad.png",
     category: "Lokalt",
     date: "15. oktober 2025",
-    title: "Samarbeid med den lokale skifestivalen",
-    excerpt: "Vi er den offisielle transportpartneren for årets skifestival. Les mer om våre spesialtilbud for deltakere og publikum.",
+    title: "Ansatt på drosjesentralen holdte på å miste det",
+    excerpt: "Under en nattevakt holdt en ansatt på drosjesentralen på å miste det. Men han overlvede og det gikk veldig bra :D",
   },
   {
-    image: "/assets/news-3.jpg",
+    image: "/assets/bilal.jpeg",
     category: "Teknologi",
     date: "12. oktober 2025",
-    title: "Oppdatert app med nye funksjoner",
-    excerpt: "Vår mobilapp har blitt oppdatert med sanntidssporing og enklere betalingsløsninger for en enda bedre brukeropplevelse.",
+    title: "Ansatt tiltalt for å ha drevet med korrupsjon på drosjesentralen",
+    excerpt: "Bilal R. Mataev ble idag tiltalt for å ha drevet med korrupsjon på drosjesentralen. Hans advokat Abdulsamad Sheikh sier de vil anke tiltalen.",
   },
 ];
 
