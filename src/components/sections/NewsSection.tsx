@@ -1,4 +1,5 @@
 import BlogCard from "../content/BlogCard";
+import AnimateOnScroll from "../animations/AnimateOnScroll";
 
 const posts = [
   {
@@ -26,22 +27,25 @@ const posts = [
 
 export default function NewsSection() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-20 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary-1">Siste Nytt</h2>
-          <p className="text-lg text-gray-600 mt-2">Hold deg oppdatert på hva som skjer hos oss.</p>
-        </div>
+        <AnimateOnScroll>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary-1">Siste Nytt</h2>
+            <p className="text-lg text-gray-600 mt-2">Hold deg oppdatert på hva som skjer hos oss.</p>
+          </div>
+        </AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, index) => (
-            <BlogCard
-              key={index}
-              image={post.image}
-              category={post.category}
-              date={post.date}
-              title={post.title}
-              excerpt={post.excerpt}
-            />
+            <AnimateOnScroll key={index} delay={index * 0.1}>
+              <BlogCard
+                image={post.image}
+                category={post.category}
+                date={post.date}
+                title={post.title}
+                excerpt={post.excerpt}
+              />
+            </AnimateOnScroll>
           ))}
         </div>
       </div>

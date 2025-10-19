@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
 import Navigation from './Navigation';
-import { Menu } from 'lucide-react';
+import { Menu, Car } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,10 +20,20 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             <Navigation />
-            <Link href="/bestill" className="bg-accent-2 text-primary-1 font-bold py-2 px-4 rounded-full hover:bg-opacity-90 transition-all">
-              Bestill Taxi
+            <Link 
+              href="/bestill" 
+              className="
+                group relative flex items-center justify-center px-5 py-2.5 text-primary-1 font-bold 
+                bg-gradient-to-r from-accent-2 to-accent-3 rounded-full 
+                overflow-hidden transition-all duration-300 ease-in-out
+                shadow-md hover:shadow-lg hover:scale-105 active:scale-100
+              "
+            >
+              <span className="absolute left-0 w-full h-full bg-white opacity-20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+              <Car className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110" />
+              <span className="relative">Bestill Taxi</span>
             </Link>
           </div>
 

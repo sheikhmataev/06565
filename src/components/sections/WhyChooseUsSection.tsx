@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Clock, ShieldCheck, Car, Users } from 'lucide-react';
+import AnimateOnScroll from '../animations/AnimateOnScroll';
 
 const features = [
   {
@@ -26,38 +27,45 @@ const features = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-gray-50 py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Image Column */}
-          <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
-            <Image 
-              src="/assets/taxi-image.jpg" 
-              alt="En moderne taxi i Lillehammers gater"
-              fill
-              className="object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-1 via-transparent to-transparent opacity-70"></div>
-          </div>
+          <AnimateOnScroll>
+            <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
+              <Image 
+                src="/assets/taxi-image.jpg" // Placeholder image
+                alt="En moderne taxi i Lillehammers gater"
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-500 hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-1 via-transparent to-transparent opacity-70"></div>
+            </div>
+          </AnimateOnScroll>
           {/* Content Column */}
           <div className="space-y-8">
-            <div>
-              <h2 className="text-4xl font-bold text-primary-1 mb-4">Hvorfor Velge 06565 Taxi?</h2>
-              <p className="text-lg text-gray-600">
-                Din pålitelige transportpartner i Lillehammer, Hafjell, Øyer og Tretten.
-              </p>
-            </div>
+            <AnimateOnScroll>
+              <div>
+                <h2 className="text-4xl font-bold text-primary-1 mb-4">Hvorfor Velge Oss?</h2>
+                <p className="text-lg text-gray-600">
+                  Vi er dedikert til å gi deg den beste taxi-opplevelsen i Lillehammer-regionen.
+                </p>
+              </div>
+            </AnimateOnScroll>
             <div className="space-y-6">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 bg-white p-3 rounded-full shadow-md">
-                    {feature.icon}
+                <AnimateOnScroll key={index} delay={index * 0.1}>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 bg-white p-3 rounded-full shadow-md">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-primary-2">{feature.title}</h3>
+                      <p className="text-gray-600 mt-1">{feature.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-primary-2">{feature.title}</h3>
-                    <p className="text-gray-600 mt-1">{feature.description}</p>
-                  </div>
-                </div>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>

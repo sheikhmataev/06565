@@ -1,5 +1,6 @@
 import { Briefcase, Users, HeartPulse, Camera, Package, Baby } from "lucide-react";
 import ServiceCard from "../content/ServiceCard";
+import AnimateOnScroll from "../animations/AnimateOnScroll";
 
 const services = [
   {
@@ -36,15 +37,19 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-20 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary-1">Våre Tjenester</h2>
-          <p className="text-lg text-gray-600 mt-2">Transportløsninger skreddersydd for dine behov.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <AnimateOnScroll>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary-1">Våre Tjenester</h2>
+            <p className="text-lg text-gray-600 mt-2">Transportløsninger skreddersydd for dine behov.</p>
+          </div>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={index} icon={service.icon} title={service.title} description={service.description} />
+            <AnimateOnScroll key={index} delay={index * 0.1}>
+              <ServiceCard icon={service.icon} title={service.title} description={service.description} />
+            </AnimateOnScroll>
           ))}
         </div>
       </div>
