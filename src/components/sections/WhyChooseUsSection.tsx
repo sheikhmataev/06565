@@ -34,7 +34,7 @@ export default function WhyChooseUsSection() {
           <AnimateOnScroll>
             <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
               <Image 
-                src="/assets/taxi-image.jpg" // Placeholder image
+                src="/assets/taxi-image.png" // Placeholder image
                 alt="En moderne taxi i Lillehammers gater"
                 layout="fill"
                 objectFit="cover"

@@ -3,14 +3,14 @@ import BlogCard from '@/components/content/BlogCard';
 // This data would typically come from a CMS
 const posts = [
   {
-    image: "/assets/news-1.jpg",
+    image: "/assets/news-1.jpeg",
     category: "Nyheter",
     date: "18. oktober 2025",
-    title: "Nye El-taxier i Lillehammer",
-    excerpt: "Vi er stolte av å kunngjøre at vi har lagt til fem nye, helelektriske taxier i vår bilpark. Dette er et viktig skritt i vår forpliktelse til en grønnere fremtid.",
+    title: "Nyeste taxisjåfør i Øyer",
+    excerpt: "Vi er stolte av å kunngjøre at vi har fått med Malik R. Dagijev som vår nyeste sjåfør i Øyer. Med bare 6 prikker på rullebladet har han massse igjen å gå på!",
   },
   {
-    image: "/assets/news-2.jpg",
+    image: "/assets/news-2.jpeg",
     category: "Lokalt",
     date: "15. oktober 2025",
     title: "Samarbeid med den lokale skifestivalen",
