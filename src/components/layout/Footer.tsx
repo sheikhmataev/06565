@@ -29,7 +29,7 @@ export default function Footer() {
             <li>Norge: <a href="tel:06565" className="hover:text-accent-2">06565</a></li>
             <li>Utland: <a href="tel:+4761222020" className="hover:text-accent-2">+47 61 22 20 20</a></li>
             <li>E-post: <a href="mailto:booking@06565.no" className="hover:text-accent-2">booking@06565.no</a></li>
-            <li>Adresse: Oskar skoglys veg 1, 2619</li>
+            <li>Adresse: Oskar skoglys veg 2, 2619</li>
           </ul>
         </div>
         {/* Social Media */}

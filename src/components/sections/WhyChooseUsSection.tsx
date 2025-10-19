@@ -4,23 +4,23 @@ import { Clock, ShieldCheck, Car, Users } from 'lucide-react';
 const features = [
   {
     icon: <Clock className="w-8 h-8 text-accent-1" />,
-    title: "Alltid Tilgjengelig",
-    description: "Vår sentral er døgnbemannet, 365 dager i året. Vi er alltid klare til å ta deg dit du skal."
+    title: "Døgnbemannet Sentral",
+    description: "Vår driftssentral er betjent 24 timer i døgnet, alle dager i året, for å sikre at du alltid får tak i oss."
   },
   {
     icon: <ShieldCheck className="w-8 h-8 text-accent-1" />,
-    title: "Trygghet og Komfort",
-    description: "Våre erfarne og serviceinnstilte sjåfører sørger for at du får en trygg og behagelig reise."
+    title: "Erfarne Sjåfører",
+    description: "Våre profesjonelle og serviceinnstilte sjåfører har god lokalkunnskap og sørger for en trygg og behagelig reise."
   },
   {
     icon: <Car className="w-8 h-8 text-accent-1" />,
-    title: "Moderne Bilpark",
-    description: "Vi har en stor og variert bilpark som dekker alle behov, fra personbiler til minibusser."
+    title: "Variert Bilpark",
+    description: "Vi disponerer over 30 biler, inkludert personbiler, minibusser og maxi-taxier for alle typer oppdrag."
   },
   {
     icon: <Users className="w-8 h-8 text-accent-1" />,
-    title: "For Alle Anledninger",
-    description: "Enten det er flyplasstransport, bykjøring eller spesielle arrangementer, har vi løsningen."
+    title: "Alle Typer Transport",
+    description: "Fra pasientreiser og skolekjøring til sightseeing og pakketransport – vi har en løsning for ethvert behov."
   }
 ];
 
@@ -32,20 +32,19 @@ export default function WhyChooseUsSection() {
           {/* Image Column */}
           <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
             <Image 
-              src="/assets/taxi-image.jpg" // Placeholder image
+              src="/assets/taxi-image.jpg" 
               alt="En moderne taxi i Lillehammers gater"
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-500 hover:scale-110"
+              fill
+              className="object-cover transition-transform duration-500 hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-1 via-transparent to-transparent opacity-70"></div>
           </div>
           {/* Content Column */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl font-bold text-primary-1 mb-4">Hvorfor Velge Oss?</h2>
+              <h2 className="text-4xl font-bold text-primary-1 mb-4">Hvorfor Velge 06565 Taxi?</h2>
               <p className="text-lg text-gray-600">
-                Vi er dedikert til å gi deg den beste taxi-opplevelsen i Lillehammer-regionen.
+                Din pålitelige transportpartner i Lillehammer, Hafjell, Øyer og Tretten.
               </p>
             </div>
             <div className="space-y-6">

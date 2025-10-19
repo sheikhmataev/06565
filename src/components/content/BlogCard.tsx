@@ -16,9 +16,8 @@ export default function BlogCard({ image, category, date, title, excerpt }: Blog
         <Image 
           src={image}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-500 group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <span className="absolute top-4 left-4 bg-accent-1 text-white text-xs font-bold uppercase px-2 py-1 rounded">
