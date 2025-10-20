@@ -13,13 +13,14 @@ export default function BlogCard({ image, category, date, title, excerpt }: Blog
   return (
     <div className="bg-white/60 backdrop-blur-md rounded-xl overflow-hidden group transition-all duration-300 ease-in-out shadow-custom-soft hover:shadow-custom-soft-hover hover:-translate-y-2 border border-white/20">
       <div className="relative h-56">
-        <Image 
-          src={image}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-500 group-hover:scale-110"
-        />
+        <div className="relative w-full h-full">
+          <Image 
+            src={image}
+            alt={title}
+            fill
+            className="transition-transform duration-300 group-hover:scale-110 object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <span className="absolute top-4 left-4 bg-accent-1 text-white text-xs font-bold uppercase px-2 py-1 rounded">
           {category}

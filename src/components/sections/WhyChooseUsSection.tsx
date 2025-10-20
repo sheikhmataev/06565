@@ -33,13 +33,14 @@ export default function WhyChooseUsSection() {
           {/* Image Column */}
           <AnimateOnScroll>
             <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
-              <Image 
-                src="/assets/taxi-image.png" // Placeholder image
-                alt="En moderne taxi i Lillehammers gater"
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-500 hover:scale-110"
-              />
+              <div className="relative w-full h-full">
+                <Image 
+                  src="/assets/taxi-image.png"
+                  alt="En moderne taxi i Lillehammers gater"
+                  fill
+                  className="transition-transform duration-500 hover:scale-110 object-cover"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary-1 via-transparent to-transparent opacity-70"></div>
             </div>
           </AnimateOnScroll>

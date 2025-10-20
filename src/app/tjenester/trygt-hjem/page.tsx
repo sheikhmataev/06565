@@ -6,13 +6,15 @@ export default function TrygtHjemPage() {
     <main className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-80 bg-gray-900">
-        <Image
-          src="/assets/trygt-hjem-hero.jpg" // Placeholder image
-          alt="Trygt Hjem for ungdom"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-40"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/assets/trygt-hjem-hero.jpg"
+            alt="Trygt Hjem for ungdom"
+            fill
+            className="opacity-70 object-cover"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white text-center">Trygt Hjem</h1>
         </div>

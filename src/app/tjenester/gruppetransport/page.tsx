@@ -6,13 +6,15 @@ export default function GruppetransportPage() {
     <main className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-80 bg-gray-900">
-        <Image
-          src="/assets/gruppetransport-hero.jpg" // Placeholder image
-          alt="Komfortabel gruppetransport"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-40"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/assets/gruppetransport-hero.jpg"
+            alt="Komfortabel gruppetransport"
+            fill
+            className="opacity-70 object-cover"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white text-center">Gruppetransport</h1>
         </div>

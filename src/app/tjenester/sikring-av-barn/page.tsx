@@ -6,13 +6,15 @@ export default function SikringAvBarnPage() {
     <main className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-80 bg-gray-900">
-        <Image
-          src="/assets/barnesete-hero.jpg" // Placeholder image
-          alt="Trygg sikring av barn i taxi"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-40"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/assets/barnesete-hero.jpg"
+            alt="Trygg sikring av barn i taxi"
+            fill
+            className="opacity-70 object-cover"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white text-center">Sikring av Barn i Taxi</h1>
         </div>

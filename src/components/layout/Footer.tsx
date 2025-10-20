@@ -38,7 +38,7 @@ export default function Footer() {
           <div className="flex space-x-4">
             <Link href="https://www.facebook.com/06565LillehammerTaxisentral" className="hover:text-accent-2 transition-transform hover:scale-110"><Facebook /></Link>
             <Link href="https://www.linkedin.com/company/06565drosjene" className="hover:text-accent-2 transition-transform hover:scale-110"><Linkedin /></Link>
-            <Link href="#" className="hover:text-accent-2 transition-transform hover:scale-110"><Instagram /></Link>
+            <Link href="https://www.instagram.com/06565lillehammertaxi/" className="hover:text-accent-2 transition-transform hover:scale-110"><Instagram /></Link>
           </div>
         </div>
       </div>
