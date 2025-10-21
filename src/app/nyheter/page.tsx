@@ -37,14 +37,13 @@ export default function NyheterPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, index) => (
-            <BlogCard
-              key={index}
-              image={post.image}
-              category={post.category}
-              date={post.date}
-              title={post.title}
-              excerpt={post.excerpt}
-            />
+            <div key={index} className="w-full">
+              <BlogCard
+                image={post.image}
+                title={post.title}
+                excerpt={post.excerpt}
+              />
+            </div>
           ))}
         </div>
       </div>

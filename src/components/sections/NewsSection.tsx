@@ -34,8 +34,6 @@ export default function NewsSection() {
             <AnimateOnScroll key={index} delay={index * 0.1}>
               <BlogCard
                 image={post.imageUrl}
-                category={post.category}
-                date={post.date}
                 title={post.title}
                 excerpt={post.excerpt}
               />
