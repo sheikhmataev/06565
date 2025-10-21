@@ -9,9 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    appDir: true,
-  },
+  // Remove experimental.appDir as it's not needed in Next.js 14+
 }
 
 const withTM = require('next-transpile-modules')([]);
