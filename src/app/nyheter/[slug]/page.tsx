@@ -1,3 +1,9 @@
+// This function is required for static export of dynamic routes.
+// It tells Next.js that there are no params to generate at build time.
+export async function generateStaticParams() {
+  return [];
+}
+
 // This is a dynamic route, so we can access the slug from the params
 const NyhetArtikkelPage = ({ params }: { params: { slug: string } }) => {
   // In a real application, you would fetch the article content based on the slug
