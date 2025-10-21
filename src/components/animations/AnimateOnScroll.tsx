@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion, useAnimation, useInView, Variants } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 type AnimationVariant = 'fadeInUp' | 'fadeInUpWithRotate';
@@ -23,7 +23,7 @@ export default function AnimateOnScroll({ children, delay = 0, className, animat
     }
   }, [isInView, controls]);
 
-  const animationVariants = {
+  const animationVariants: Variants = {
     fadeInUp: {
       hidden: { opacity: 0, y: 50 },
       visible: {
