@@ -20,6 +20,7 @@ export default function Footer() {
             <li><Link href="/pris" className="hover:text-accent-2 transition-colors">Priskalkulator</Link></li>
             <li><Link href="/tjenester" className="hover:text-accent-2 transition-colors">Våre Tjenester</Link></li>
             <li><Link href="/om-oss" className="hover:text-accent-2 transition-colors">Om Oss</Link></li>
+            <li><Link href="/jobb" className="hover:text-accent-2 transition-colors">Jobb hos oss</Link></li>
           </ul>
         </div>
         {/* Contact */}

@@ -20,17 +20,17 @@ const pricingData = [
     fjerntakst: "25,65",
   },
   {
-    tidspunkt: "Lørdag (06-15)",
+    tidspunkt: "Lørdag (06-18)",
     startpris: "75,-",
     start_m: "126,-",
     kr_pr_km: "15,86",
     kr_pr_min: "10,94",
     minstepris: "166,-",
     jamforpris: "345,-",
-    fjerntakst: "27,56",
+    fjerntakst: "27,58",
   },
   {
-    tidspunkt: "Helg/Natt",
+    tidspunkt: "Helginatt (Man-Fre 24-06/Lør-Søn 18-06)",
     startpris: "78,-",
     start_m: "131,-",
     kr_pr_km: "16,47",
@@ -61,10 +61,12 @@ export default function PricingTable() {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tidspunkt</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Startpris</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start m.</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kr/km</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kr/min</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Minstepris</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jamførpris*</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fjerntakst†</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -72,16 +74,18 @@ export default function PricingTable() {
               <tr key={index} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.tidspunkt}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.startpris}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.start_m}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.kr_pr_km}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.kr_pr_min}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.minstepris}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.jamforpris}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.fjerntakst}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-gray-500 mt-4">*Jamførpris er basert på startpris + 8 km + 13 min betalt tid. Prisene gjelder fra 15. april 2024 og er inklusive 12% mva.</p>
+      <p className="text-xs text-gray-500 mt-4">*Jamførpris er basert på startpris + 8 km + 13 min betalt tid. Prisene gjelder fra 15. april 2024 og er inklusive 12% mva. † Fjerntakst gjelder per km etter 10 km.</p>
     </div>
   );
 }

@@ -12,6 +12,7 @@ function Navigation() {
   const navLinks = [
     { href: "/pris", label: "Pris" },
     { href: "/tjenester", label: "Tjenester" },
+    { href: "/holdeplasser", label: "Holdeplasser" },
     { href: "/om-oss", label: "Om Oss" },
     { href: "/nyheter", label: "Nyheter" },
     { href: "/kontakt", label: "Kontakt" },

@@ -19,8 +19,8 @@ export default function KontaktPage() {
                 <Phone className="w-8 h-8 text-accent-1" />
                 <div>
                   <h3 className="font-semibold text-lg">Ring oss</h3>
-                  <a href="tel:06565" className="text-gray-700 hover:text-accent-2">06565 (Hele døgnet)</a><br/>
-                  <a href="tel:+4761222020" className="text-gray-700 hover:text-accent-2">+47 61 22 20 20 (Kundeservice)</a>
+                  <a href="tel:06565" className="text-gray-700 hover:text-accent-2">06565 (Fra Norge)</a><br/>
+                  <a href="tel:+4761222020" className="text-gray-700 hover:text-accent-2">+47 61 22 20 20 (Fra utlandet)</a>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -34,7 +34,7 @@ export default function KontaktPage() {
                 <MapPin className="w-8 h-8 text-accent-1" />
                 <div>
                   <h3 className="font-semibold text-lg">Besøksadresse</h3>
-                  <p className="text-gray-700">Oskar Skoglys veg 1, 2619 Lillehammer</p>
+                  <p className="text-gray-700">Oskar Skoglys veg 2, 2619 Lillehammer</p>
                 </div>
               </div>
             </div>
