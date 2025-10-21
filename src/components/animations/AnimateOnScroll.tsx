@@ -23,7 +23,7 @@ export default function AnimateOnScroll({ children, delay = 0, className, animat
     }
   }, [isInView, controls]);
 
-  const animationVariants: Variants = {
+  const animationVariants: Record<AnimationVariant, Variants> = {
     fadeInUp: {
       hidden: { opacity: 0, y: 50 },
       visible: {
