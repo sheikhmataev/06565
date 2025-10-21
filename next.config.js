@@ -9,10 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // For static export
-  distDir: 'out',
-  // Optional: Enable if you're using client-side routing with next/link
-  // trailingSlash: true,
 };
 
 // Remove next-transpile-modules if not needed

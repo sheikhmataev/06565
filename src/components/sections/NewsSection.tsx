@@ -1,27 +1,21 @@
 import BlogCard from "../content/BlogCard";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
 
-const posts = [
+const recentPosts = [
   {
-    image: "/assets/news-1.jpeg",
-    category: "Nyheter",
-    date: "18. oktober 2025",
-    title: "Nyeste taxisjåfør i Øyer",
-    excerpt: "Vi er stolte av å kunngjøre at vi har fått med Malik R. Dagijev som vår nyeste sjåfør i Øyer. Med bare 6 prikker på rullebladet har han massse igjen å gå på!",
+    imageUrl: "/assets/news-1.jpeg",
+    title: "Viktig Informasjon om Trygt Hjem",
+    excerpt: "Nye retningslinjer for Trygt Hjem-ordningen er nå tilgjengelig. Sørg for at du er oppdatert på de siste endringene for en trygg reise.",
   },
   {
-    image: "/assets/samad.png",
-    category: "Lokalt",
-    date: "15. oktober 2025",
-    title: "Ansatt på drosjesentralen holdte på å miste det",
-    excerpt: "Under en nattevakt holdt en ansatt på drosjesentralen på å miste det. Men han overlvede og det gikk veldig bra :D",
+    imageUrl: "/assets/news-2.jpg",
+    title: "Sommerens Sightseeing-Turer",
+    excerpt: "Utforsk Lillehammers vakre omgivelser med våre skreddersydde sightseeing-turer. Våre erfarne sjåfører tar deg med til de beste stedene.",
   },
   {
-    image: "/assets/bilal.jpeg",
-    category: "Teknologi",
-    date: "12. oktober 2025",
-    title: "Ansatt tiltalt for å ha drevet med korrupsjon på drosjesentralen",
-    excerpt: "Bilal R. Mataev ble idag tiltalt for å ha drevet med korrupsjon på drosjesentralen. Hans advokat Abdulsamad Sheikh sier de vil anke tiltalen.",
+    imageUrl: "/assets/news-3.jpg",
+    title: "Effektiv Pakketransport for Bedrifter",
+    excerpt: "Vi tilbyr nå utvidede pakketransporttjenester for bedrifter i hele Mjøsområdet. Rask og pålitelig levering av dine varer.",
   },
 ];
 
@@ -36,10 +30,10 @@ export default function NewsSection() {
           </div>
         </AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
+          {recentPosts.map((post, index) => (
             <AnimateOnScroll key={index} delay={index * 0.1}>
               <BlogCard
-                image={post.image}
+                image={post.imageUrl}
                 category={post.category}
                 date={post.date}
                 title={post.title}
