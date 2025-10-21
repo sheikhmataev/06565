@@ -22,8 +22,18 @@ jobs:
       
       - name: Build
         run: |
+          # Create a temporary directory for the build
+          mkdir -p .next-temp
+          
+          # Build the application
           npm run build
+          
+          # Remove API routes from the build output
+          rm -rf out/_next/static/chunks/pages/api
+          
+          # Create necessary files for GitHub Pages
           touch out/.nojekyll
+          echo "taxi-06565.pages.dev" > out/CNAME
       
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

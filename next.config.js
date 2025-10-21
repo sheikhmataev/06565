@@ -1,14 +1,19 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+const isGithubPages = process.env.NODE_ENV === 'production';
 const repoName = '06565';
 
 const nextConfig = {
   output: 'export',
-  basePath: isGithubActions ? `/${repoName}` : '',
-  assetPrefix: isGithubActions ? `/${repoName}/` : '',
+  basePath: isGithubPages ? `/${repoName}` : '',
+  assetPrefix: isGithubPages ? `/${repoName}/` : '',
   images: {
     unoptimized: true,
   },
+  experimental: {
+    appDir: true,
+  },
 }
 
-module.exports = nextConfig
+const withTM = require('next-transpile-modules')([]);
+
+module.exports = withTM(nextConfig);
