@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
 
+// This function is required for static export of dynamic routes.
+// It tells Next.js that there are no params to generate at build time.
+export async function generateStaticParams() {
+  return [];
+}
+
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }
