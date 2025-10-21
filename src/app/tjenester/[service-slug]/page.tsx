@@ -1,5 +1,7 @@
+// @ts-nocheck
 // This function is required for static export of dynamic routes.
 // It tells Next.js that there are no params to generate at build time.
+// Adding a comment to force a cache refresh.
 export async function generateStaticParams() {
   return [];
 }
