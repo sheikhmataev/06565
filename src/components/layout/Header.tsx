@@ -33,8 +33,13 @@ function Navigation() {
   );
 }
 
+interface MobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 // MobileMenu component recreated to be self-contained
-function MobileMenu({ isOpen, onClose }) {
+function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   if (!isOpen) return null;
 
   return (
