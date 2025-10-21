@@ -68,3 +68,4 @@ pnpm-lock.yaml
 
 # Yarn Integrity file
 .yarn-integrity
+package-lock.json
