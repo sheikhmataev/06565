@@ -2,10 +2,17 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # Change this to your default branch if it's not 'main'
-  
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build-and-deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,22 +29,22 @@ jobs:
       
       - name: Build
         run: |
-          # Create a temporary directory for the build
-          mkdir -p .next-temp
-          
-          # Build the application
           npm run build
-          
-          # Remove API routes from the build output
-          rm -rf out/_next/static/chunks/pages/api
-          
-          # Create necessary files for GitHub Pages
           touch out/.nojekyll
           echo "taxi-06565.pages.dev" > out/CNAME
       
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: out
-          branch: gh-pages
-          clean: true
+          path: './out'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

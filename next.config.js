@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isGithubPages = process.env.NODE_ENV === 'production';
+const isGithubPages = process.env.GITHUB_ACTIONS === 'true';
 const repoName = '06565';
 
 const nextConfig = {
@@ -9,9 +9,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Remove experimental.appDir as it's not needed in Next.js 14+
-}
+  // For static export
+  distDir: 'out',
+  // Optional: Enable if you're using client-side routing with next/link
+  // trailingSlash: true,
+};
 
-const withTM = require('next-transpile-modules')([]);
+// Remove next-transpile-modules if not needed
+// const withTM = require('next-transpile-modules')([]);
+// module.exports = withTM(nextConfig);
 
-module.exports = withTM(nextConfig);
+module.exports = nextConfig;
