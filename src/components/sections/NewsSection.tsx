@@ -1,25 +1,10 @@
 import BlogCard from "../content/BlogCard";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
-
-const recentPosts = [
-  {
-    imageUrl: "/assets/news-1.jpeg",
-    title: "Viktig Informasjon om Trygt Hjem",
-    excerpt: "Nye retningslinjer for Trygt Hjem-ordningen er nå tilgjengelig. Sørg for at du er oppdatert på de siste endringene for en trygg reise.",
-  },
-  {
-    imageUrl: "/assets/news-2.jpg",
-    title: "Sommerens Sightseeing-Turer",
-    excerpt: "Utforsk Lillehammers vakre omgivelser med våre skreddersydde sightseeing-turer. Våre erfarne sjåfører tar deg med til de beste stedene.",
-  },
-  {
-    imageUrl: "/assets/news-3.jpg",
-    title: "Effektiv Pakketransport for Bedrifter",
-    excerpt: "Vi tilbyr nå utvidede pakketransporttjenester for bedrifter i hele Mjøsområdet. Rask og pålitelig levering av dine varer.",
-  },
-];
+import { newsPosts } from "@/data/news";
 
 export default function NewsSection() {
+  // Show the 3 most recent posts (same as in Nyhetsarkiv)
+  const recentPosts = newsPosts.slice(0, 3);
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
@@ -33,7 +18,7 @@ export default function NewsSection() {
           {recentPosts.map((post, index) => (
             <AnimateOnScroll key={index} delay={index * 0.1}>
               <BlogCard
-                image={post.imageUrl}
+                image={post.image}
                 title={post.title}
                 excerpt={post.excerpt}
               />
