@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImagePath } from '@/lib/utils';
 
 interface BlogCardProps {
   image: string;
@@ -12,7 +13,7 @@ export default function BlogCard({ image, title, excerpt }: BlogCardProps) {
       <div className="relative h-56">
         <div className="relative w-full h-full">
           <Image 
-            src={image}
+            src={getImagePath(image)}
             alt={title}
             fill
             className="transition-transform duration-300 group-hover:scale-110 object-cover"

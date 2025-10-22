@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Clock, ShieldCheck, Car, Users } from 'lucide-react';
 import AnimateOnScroll from '../animations/AnimateOnScroll';
+import { getImagePath } from '@/lib/utils';
 
 const features = [
   {
@@ -35,7 +36,7 @@ export default function WhyChooseUsSection() {
             <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
               <div className="relative w-full h-full">
                 <Image 
-                  src="/assets/taxi-image.png"
+                  src={getImagePath("/assets/taxi-image.png")}
                   alt="En moderne taxi i Lillehammers gater"
                   fill
                   className="transition-transform duration-500 hover:scale-110 object-cover"

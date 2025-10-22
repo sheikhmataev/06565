@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Phone, Mail, Baby, ShieldCheck } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 
 export default function SikringAvBarnPage() {
   return (
@@ -8,7 +9,7 @@ export default function SikringAvBarnPage() {
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/barnesete-hero.jpg"
+            src={getImagePath("/assets/taxi-image.png")}
             alt="Trygg sikring av barn i taxi"
             fill
             className="opacity-70 object-cover"

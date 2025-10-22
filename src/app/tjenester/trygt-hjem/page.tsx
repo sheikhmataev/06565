@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Phone, Mail, Shield, Calendar, Users, DollarSign } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 
 export default function TrygtHjemPage() {
   return (
@@ -8,7 +9,7 @@ export default function TrygtHjemPage() {
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/trygt-hjem-hero.jpg"
+            src={getImagePath("/assets/trygthjem.png")}
             alt="Trygt Hjem for ungdom"
             fill
             className="opacity-70 object-cover"

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Menu, Car, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 // --- Helper Components (Previously separate files) ---
 
@@ -86,7 +87,7 @@ export default function Header() {
         <div className="container mx-auto flex items-center justify-between px-4 py-4 text-white">
           <Link href="/" className="flex items-center">
             <Image 
-              src="/Assets/Logo.png" 
+              src={getImagePath("/assets/Logo.png")}
               alt="Lillehammer Taxi Logo" 
               width={80} 
               height={80} 

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Phone, Mail, Map, Users } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 
 export default function SightseeingPage() {
   return (
@@ -8,7 +9,7 @@ export default function SightseeingPage() {
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/sightseeing-hero.jpg"
+            src={getImagePath("/assets/skibladner.png")}
             alt="Sightseeing i Lillehammer"
             fill
             className="opacity-70 object-cover"

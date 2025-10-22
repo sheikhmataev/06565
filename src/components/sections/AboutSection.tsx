@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 export default function AboutSection() {
   return (
@@ -18,7 +19,7 @@ export default function AboutSection() {
           </div>
           <div className="order-1 md:order-2 rounded-lg overflow-hidden shadow-2xl">
             <Image 
-              src="/assets/taxi-image.png" 
+              src={getImagePath("/assets/taxi-image.png")}
               alt="En av våre moderne taxier" 
               width={600} 
               height={400}

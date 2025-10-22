@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Phone, Mail, Users, Bus } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 
 export default function GruppetransportPage() {
   return (
@@ -8,7 +9,7 @@ export default function GruppetransportPage() {
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
           <Image
-            src="/assets/gruppetransport-hero.jpg"
+            src={getImagePath("/assets/maxitaxiflex.png")}
             alt="Komfortabel gruppetransport"
             fill
             className="opacity-70 object-cover"

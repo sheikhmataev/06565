@@ -1,5 +1,6 @@
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 const HoldeplasserPage = () => {
   const holdeplasser = [
@@ -31,10 +32,10 @@ const HoldeplasserPage = () => {
             <div key={plass.name} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
               <div className="relative h-60 w-full">
                 <Image 
-                  src={plass.image}
+                  src={getImagePath(plass.image)}
                   alt={`Bilde av ${plass.name}`}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
