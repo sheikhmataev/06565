@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowRight, Clock, Shield, Users } from 'lucide-react';
 import AnimatedGradientBackground from '../layout/AnimatedGradientBackground';
 import ShapeDivider from '../layout/ShapeDivider';
 
@@ -9,40 +9,98 @@ export default function HeroSection() {
     <section className="relative text-white overflow-hidden">
       <div className="pt-24 pb-20">
         <AnimatedGradientBackground />
-        <div className="absolute inset-0 bg-primary-1/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-1/80 via-primary-1/70 to-primary-2/60"></div>
         
-        <div className="relative container mx-auto px-4 pt-16 pb-24 md:pt-20 md:pb-32 flex flex-col items-center text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight text-shadow-lg">
-            Trygg og effektiv transport i <span className="text-accent-3">Lillehammer</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl text-shadow-md">
-            Bestill din neste tur raskt og enkelt. Vi er her for deg døgnet rundt.
-          </p>
+        <div className="relative container mx-auto px-4 pt-2 pb-12 md:pt-4 md:pb-16 flex flex-col items-center text-center">
+          {/* Enhanced Typography with Better Hierarchy */}
+          <div className="mb-4 max-w-5xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[0.9] tracking-tight">
+              <span className="block">Trygg og</span>
+              <span className="block bg-gradient-to-r from-accent-2 via-accent-3 to-accent-2 bg-clip-text text-transparent">
+                effektiv transport
+              </span>
+              <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 font-light">
+                i Lillehammer
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto leading-relaxed font-light opacity-90">
+              Bestill din neste tur raskt og enkelt. Vi er her for deg døgnet rundt med moderne biler og profesjonelle sjåfører.
+            </p>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm md:text-base">
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Clock className="w-4 h-4 text-accent-2" />
+              <span>24/7 tilgjengelig</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Shield className="w-4 h-4 text-accent-2" />
+              <span>Trygg transport</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Users className="w-4 h-4 text-accent-2" />
+              <span>Erfarne sjåfører</span>
+            </div>
+          </div>
           
-          <div className="bg-white/20 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl border border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          {/* Enhanced Booking Form */}
+          <div className="bg-white/15 backdrop-blur-xl p-8 md:p-10 rounded-2xl shadow-2xl w-full max-w-5xl border border-white/25 hover:bg-white/20 transition-all duration-500">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {/* From */}
-              <div className="relative">
-                <label htmlFor="from" className="block text-sm font-medium text-accent-3 mb-1">Fra</label>
-                <div className="flex items-center bg-white/10 rounded-lg p-3 transition-all duration-300 focus-within:bg-white/20 focus-within:ring-2 focus-within:ring-accent-2">
-                  <MapPin className="text-accent-2 mr-2" />
-                  <input type="text" id="from" placeholder="Hentested" className="bg-transparent w-full focus:outline-none placeholder-gray-300" />
+              <div className="relative group">
+                <label htmlFor="from" className="block text-sm font-semibold text-accent-3 mb-2 tracking-wide uppercase">Fra</label>
+                <div className="flex items-center bg-white/15 rounded-xl p-4 transition-all duration-300 group-hover:bg-white/25 focus-within:bg-white/25 focus-within:ring-2 focus-within:ring-accent-2 focus-within:ring-offset-2 focus-within:ring-offset-transparent">
+                  <MapPin className="text-accent-2 mr-3 w-5 h-5" />
+                  <input 
+                    type="text" 
+                    id="from" 
+                    placeholder="Hvor skal vi hente deg?" 
+                    className="bg-transparent w-full focus:outline-none placeholder-gray-300 text-lg font-medium" 
+                  />
                 </div>
               </div>
               {/* To */}
-              <div className="relative">
-                <label htmlFor="to" className="block text-sm font-medium text-accent-3 mb-1">Til</label>
-                <div className="flex items-center bg-white/10 rounded-lg p-3 transition-all duration-300 focus-within:bg-white/20 focus-within:ring-2 focus-within:ring-accent-2">
-                  <MapPin className="text-accent-2 mr-2" />
-                  <input type="text" id="to" placeholder="Destinasjon" className="bg-transparent w-full focus:outline-none placeholder-gray-300" />
+              <div className="relative group">
+                <label htmlFor="to" className="block text-sm font-semibold text-accent-3 mb-2 tracking-wide uppercase">Til</label>
+                <div className="flex items-center bg-white/15 rounded-xl p-4 transition-all duration-300 group-hover:bg-white/25 focus-within:bg-white/25 focus-within:ring-2 focus-within:ring-accent-2 focus-within:ring-offset-2 focus-within:ring-offset-transparent">
+                  <MapPin className="text-accent-2 mr-3 w-5 h-5" />
+                  <input 
+                    type="text" 
+                    id="to" 
+                    placeholder="Hvor skal vi kjøre deg?" 
+                    className="bg-transparent w-full focus:outline-none placeholder-gray-300 text-lg font-medium" 
+                  />
                 </div>
               </div>
-              {/* Book Now Button */}
+              {/* Enhanced Book Now Button */}
               <div className="md:self-end">
-                <button className="w-full bg-gradient-to-r from-accent-2 to-accent-3 text-primary-1 font-bold py-3 px-6 rounded-lg text-lg transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg">
-                  Bestill nå
+                <button className="group w-full bg-gradient-to-r from-accent-2 via-accent-3 to-accent-2 text-primary-1 font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-accent-2/25 flex items-center justify-center gap-2 relative overflow-hidden">
+                  <span className="relative z-10">Bestill nå</span>
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                 </button>
               </div>
+            </div>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">40+</div>
+              <div className="text-sm md:text-base opacity-80">Moderne biler</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">24/7</div>
+              <div className="text-sm md:text-base opacity-80">Tilgjengelighet</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">25+</div>
+              <div className="text-sm md:text-base opacity-80">Års erfaring</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">100%</div>
+              <div className="text-sm md:text-base opacity-80">Trygg transport</div>
             </div>
           </div>
         </div>

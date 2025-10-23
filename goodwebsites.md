@@ -1,0 +1,16 @@
+https://www.blendb2b.com/work/transpoco
+https://www.anthropic.com/
+https://www.blendb2b.com/work/robin-radar-website
+https://zapier.com/
+https://www.blendb2b.com/work/algorand
+https://www.meetjamie.ai/
+https://www.blendb2b.com/work/second-nature
+https://www.blendb2b.com/work/viedoc
+https://frame.work/gb/en
+https://www.blendb2b.com/work/equiem
+https://www.blendb2b.com/work/ft-technologies
+https://www.blendb2b.com/work/n-zyte
+https://www.colabsoftware.com/
+https://www.blendb2b.com/work/partful
+https://www.clay.com/
+https://www.blendb2b.com/work/algorand
