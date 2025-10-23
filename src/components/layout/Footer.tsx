@@ -4,14 +4,17 @@ import { Facebook, Linkedin, Instagram } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="bg-primary-1 text-white">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 py-12">
-        {/* About */}
-        <div>
-          <h3 className="text-xl font-bold text-accent-3 mb-4">Lillehammer Taxi</h3>
-          <p className="text-gray-300">
-          Rask, trygg og tilgjengelig 24/7
-          </p>
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 py-12">
+        {/* About & Social */}
+        <div className="md:col-span-1">
+          <h3 className="text-2xl font-bold text-accent-3 mb-4">Lillehammer Taxi</h3>
+          <div className="flex space-x-4">
+            <Link href="https://www.facebook.com/06565LillehammerTaxisentral" className="hover:text-accent-2 transition-transform hover:scale-110"><Facebook /></Link>
+            <Link href="https://www.linkedin.com/company/06565drosjene" className="hover:text-accent-2 transition-transform hover:scale-110"><Linkedin /></Link>
+            <Link href="https://www.instagram.com/06565lillehammertaxi/" className="hover:text-accent-2 transition-transform hover:scale-110"><Instagram /></Link>
+          </div>
         </div>
+
         {/* Quick Links */}
         <div>
           <h3 className="text-xl font-bold text-accent-3 mb-4">Snarveier</h3>
@@ -23,6 +26,7 @@ export default function Footer() {
             <li><Link href="/jobb" className="hover:text-accent-2 transition-colors">Jobb hos oss</Link></li>
           </ul>
         </div>
+
         {/* Contact */}
         <div>
           <h3 className="text-xl font-bold text-accent-3 mb-4">Kontakt Oss</h3>
@@ -33,19 +37,10 @@ export default function Footer() {
             <li>Adresse: Oskar skoglys veg 2, 2619</li>
           </ul>
         </div>
-        {/* Social Media */}
-        <div>
-          <h3 className="text-xl font-bold text-accent-3 mb-4">Følg Oss</h3>
-          <div className="flex space-x-4">
-            <Link href="https://www.facebook.com/06565LillehammerTaxisentral" className="hover:text-accent-2 transition-transform hover:scale-110"><Facebook /></Link>
-            <Link href="https://www.linkedin.com/company/06565drosjene" className="hover:text-accent-2 transition-transform hover:scale-110"><Linkedin /></Link>
-            <Link href="https://www.instagram.com/06565lillehammertaxi/" className="hover:text-accent-2 transition-transform hover:scale-110"><Instagram /></Link>
-          </div>
-        </div>
       </div>
       <div className="bg-gray-900">
         <div className="container mx-auto py-4 px-4 text-center text-gray-400">
-          &copy; {new Date().getFullYear()} Lillehammer Taxi. Alle rettigheter forbeholdt.
+          Designet for Lillehammer Taxi - laget av S&M Partners AS - &copy; {new Date().getFullYear()}
         </div>
       </div>
     </footer>

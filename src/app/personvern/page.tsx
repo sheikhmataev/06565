@@ -1,8 +1,12 @@
+import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
+
 export default function PersonvernPage() {
   return (
     <main className="bg-white py-16">
       <div className="container mx-auto px-4 prose lg:prose-xl">
-        <h1>Personvern og Betalingsinformasjon</h1>
+        <AnimateOnScroll>
+          <h1>Personvern og Betalingsinformasjon</h1>
+        </AnimateOnScroll>
 
         <h2>SMS-varsling</h2>
         <p>Når du har bestilt taxi hos oss, vil du motta en SMS om hvilken bil som er på veg. Denne SMS-en belaster kr. 1 til ditt mobilabbonement. Dersom du ikke ønsker å motta SMS fra oss, kan du reservere deg mot dette ved å ta kontakt med oss på tlf 61 22 20 20, eller sende en mail til booking@06565.no. Hvis du bestiller over telefon kan du også gi beskjed til kundebehandleren om at du ikke ønsker å motta SMS på bestillingen.</p>

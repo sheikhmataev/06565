@@ -85,12 +85,12 @@ export default function Header() {
     <>
       <header className="fixed top-0 left-0 right-0 z-40 bg-primary-1/95 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-4 text-white">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center space-x-2">
             <Image 
               src={getImagePath("/assets/Logo.png")}
               alt="Lillehammer Taxi Logo" 
-              width={80} 
-              height={80} 
+              width={150} 
+              height={125} 
               className="hover:scale-105 transition-transform duration-200"
             />
           </Link>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Phone, Mail, Package, Zap } from 'lucide-react';
 import { getImagePath } from '@/lib/utils';
+import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 
 export default function PakketransportPage() {
   return (
@@ -17,15 +18,18 @@ export default function PakketransportPage() {
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white text-center">Pakketransport</h1>
+          <AnimateOnScroll>
+            <h1 className="text-5xl md:text-6xl font-bold text-white text-center">Pakketransport</h1>
+          </AnimateOnScroll>
         </div>
       </div>
 
       {/* Content Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-12">
-          <div className="md:col-span-2 bg-white p-8 rounded-lg shadow-lg">
-            <h2 className="text-3xl font-bold text-primary-2 mb-4">Rask og Sikker Levering i Mjøsområdet</h2>
+          <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate" className="md:col-span-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h2 className="text-3xl font-bold text-primary-2 mb-4">Rask og Sikker Levering i Mjøsområdet</h2>
             <p className="text-lg text-gray-700 mb-6">
               Trenger du å sende en pakke raskt og trygt? 06565 Taxi fungerer som en effektiv budbil- og varetaxitjeneste i hele Mjøsområdet. Med 30 biler i daglig trafikk mellom Gjøvik, Lillehammer, Moelv, Brumunddal, Hamar og Elverum, kan vi garantere en pålitelig levering.
             </p>
@@ -57,23 +61,26 @@ export default function PakketransportPage() {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          </AnimateOnScroll>
 
           {/* Contact/Info Box */}
-          <div className="bg-white p-8 rounded-lg shadow-lg h-fit">
-            <h3 className="text-2xl font-bold text-primary-2 mb-4">Bestill Transport</h3>
-            <p className="text-gray-700 mb-6">Ring oss for et pristilbud eller for å bestille din neste pakketransport.</p>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Phone className="w-6 h-6 text-accent-1" />
-                <a href="tel:06565" className="text-gray-800 hover:text-accent-2">06565</a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-6 h-6 text-accent-1" />
-                <a href="mailto:booking@06565.no" className="text-gray-800 hover:text-accent-2">booking@06565.no</a>
+          <AnimateOnScroll delay={0.2} animationType="fadeInUpWithRotate">
+            <div className="bg-white p-8 rounded-lg shadow-lg h-fit">
+              <h3 className="text-2xl font-bold text-primary-2 mb-4">Bestill Transport</h3>
+              <p className="text-gray-700 mb-6">Ring oss for et pristilbud eller for å bestille din neste pakketransport.</p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-6 h-6 text-accent-1" />
+                  <a href="tel:06565" className="text-gray-800 hover:text-accent-2">06565</a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-6 h-6 text-accent-1" />
+                  <a href="mailto:booking@06565.no" className="text-gray-800 hover:text-accent-2">booking@06565.no</a>
+                </div>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </main>

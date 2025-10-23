@@ -1,22 +1,21 @@
 import PriceCalculator from '@/components/forms/PriceCalculator';
 import PricingTable from '@/components/content/PricingTable';
+import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 
 export default function PrisPage() {
   return (
     <main className="bg-gray-50">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-1">Priser og Priskalkulator</h1>
-          <p className="text-lg text-gray-600 mt-2">Se våre faste priser eller beregn et estimat for din tur.</p>
-        </div>
-
-        <div className="grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-3">
-            <PricingTable />
-          </div>
-          <div className="lg:col-span-2">
+      <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="grid lg:grid-cols-5 gap-8 xl:gap-12">
+          {/* Price Calculator */}
+          <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate" className="lg:col-span-3">
             <PriceCalculator />
-          </div>
+          </AnimateOnScroll>
+
+          {/* Pricing Table */}
+          <AnimateOnScroll delay={0.2} animationType="fadeInUpWithRotate" className="lg:col-span-2">
+            <PricingTable />
+          </AnimateOnScroll>
         </div>
       </div>
     </main>

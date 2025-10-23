@@ -1,91 +1,110 @@
+import { Sun, Moon, Sunrise, Sunset, Award, Star } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+
 const pricingData = [
-  {
-    tidspunkt: "Dag (Man-Fre 06-18)",
-    startpris: "58,-",
-    start_m: "97,-",
-    kr_pr_km: "12,20",
-    kr_pr_min: "8,42",
-    minstepris: "128,-",
-    jamforpris: "265,-",
-    fjerntakst: "21,20",
-  },
-  {
-    tidspunkt: "Kveld (Man-Fre 18-24)",
-    startpris: "70,-",
-    start_m: "117,-",
-    kr_pr_km: "14,76",
-    kr_pr_min: "10,18",
-    minstepris: "155,-",
-    jamforpris: "321,-",
-    fjerntakst: "25,65",
-  },
-  {
-    tidspunkt: "Lørdag (06-18)",
-    startpris: "75,-",
-    start_m: "126,-",
-    kr_pr_km: "15,86",
-    kr_pr_min: "10,94",
-    minstepris: "166,-",
-    jamforpris: "345,-",
-    fjerntakst: "27,58",
-  },
-  {
-    tidspunkt: "Helginatt (Man-Fre 24-06/Lør-Søn 18-06)",
-    startpris: "78,-",
-    start_m: "131,-",
-    kr_pr_km: "16,47",
-    kr_pr_min: "11,36",
-    minstepris: "173,-",
-    jamforpris: "358,-",
-    fjerntakst: "28,62",
-  },
-  {
-    tidspunkt: "Høytid og Helligdager",
-    startpris: "84,-",
-    start_m: "141,-",
-    kr_pr_km: "17,69",
-    kr_pr_min: "12,20",
-    minstepris: "186,-",
-    jamforpris: "384,-",
-    fjerntakst: "30,74",
-  },
+    {
+      id: 'dag',
+      tidspunkt: "Dag",
+      periode: "Man-Fre 06-18",
+      icon: <Sun className="w-5 h-5 mr-2 text-yellow-500" />,
+      startpris: "58,-",
+      kr_pr_km: "12,20",
+      kr_pr_min: "8,42",
+      minstepris: "128,-",
+      jamforpris: "265,-",
+      fjerntakst: "21,20",
+    },
+    {
+      id: 'kveld',
+      tidspunkt: "Kveld",
+      periode: "Man-Fre 18-24",
+      icon: <Sunset className="w-5 h-5 mr-2 text-orange-500" />,
+      startpris: "70,-",
+      kr_pr_km: "14,76",
+      kr_pr_min: "10,18",
+      minstepris: "155,-",
+      jamforpris: "321,-",
+      fjerntakst: "25,65",
+    },
+    {
+      id: 'lordag',
+      tidspunkt: "Lørdag",
+      periode: "06-18",
+      icon: <Sunrise className="w-5 h-5 mr-2 text-amber-500" />,
+      startpris: "75,-",
+      kr_pr_km: "15,86",
+      kr_pr_min: "10,94",
+      minstepris: "166,-",
+      jamforpris: "345,-",
+      fjerntakst: "27,58",
+    },
+    {
+      id: 'helg_natt',
+      tidspunkt: "Helg/Natt",
+      periode: "Fre 18 - Man 06",
+      icon: <Moon className="mr-2 text-indigo-500" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px' }} />,
+      startpris: "78,-",
+      kr_pr_km: "16,47",
+      kr_pr_min: "11,36",
+      minstepris: "173,-",
+      jamforpris: "358,-",
+      fjerntakst: "28,62",
+    },
+    {
+      id: 'hoytid',
+      tidspunkt: "Høytid",
+      periode: "Helligdager",
+      icon: <Award className="w-5 h-5 mr-2 text-red-500" />,
+      startpris: "84,-",
+      kr_pr_km: "17,69",
+      kr_pr_min: "12,20",
+      minstepris: "186,-",
+      jamforpris: "384,-",
+      fjerntakst: "30,74",
+    },
 ];
 
-export default function PricingTable() {
-  return (
-    <div className="bg-white p-8 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-primary-2 mb-6">Prisoversikt (1-4 personer)</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tidspunkt</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Startpris</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start m.</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kr/km</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kr/min</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Minstepris</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jamførpris*</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fjerntakst†</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {pricingData.map((row, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.tidspunkt}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.startpris}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.start_m}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.kr_pr_km}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.kr_pr_min}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.minstepris}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.jamforpris}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.fjerntakst}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p className="text-xs text-gray-500 mt-4">*Jamførpris er basert på startpris + 8 km + 13 min betalt tid. Prisene gjelder fra 15. april 2024 og er inklusive 12% mva. † Fjerntakst gjelder per km etter 10 km.</p>
+const PriceRow = ({ label, value }: { label: string; value: string }) => (
+    <div className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
+        <span className="text-sm text-gray-600">{label}</span>
+        <span className="text-sm font-semibold text-primary-2">{value}</span>
     </div>
-  );
+);
+
+
+export default function PricingTable() {
+    return (
+        <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg h-full">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary-2 mb-6">Prisoversikt (1-4 pers)</h2>
+            <Tabs defaultValue="dag" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 h-auto mb-4">
+                    {pricingData.map((tab) => (
+                        <TabsTrigger key={tab.id} value={tab.id} className="text-xs md:text-sm h-auto py-2">
+                            {tab.icon} {tab.tidspunkt}
+                        </TabsTrigger>
+                    ))}
+                </TabsList>
+                {pricingData.map((tab) => (
+                    <TabsContent key={tab.id} value={tab.id}>
+                        <div className="bg-gray-50 rounded-lg p-4">
+                            <PriceRow label="Periode" value={tab.periode} />
+                            <PriceRow label="Startpris" value={tab.startpris} />
+                            <PriceRow label="Kr/km" value={tab.kr_pr_km} />
+                            <PriceRow label="Kr/min" value={tab.kr_pr_min} />
+                            <PriceRow label="Minstepris" value={tab.minstepris} />
+                            <PriceRow label="Jamførpris*" value={tab.jamforpris} />
+                            <PriceRow label="Fjerntakst†" value={tab.fjerntakst} />
+                        </div>
+                    </TabsContent>
+                ))}
+            </Tabs>
+            <p className="text-xs text-gray-500 mt-4">
+                *Jamførpris: Startpris + 8 km + 13 min.
+                <br />
+                † Fjerntakst: Gjelder per km etter 10 km.
+                <br />
+                Priser er inkl. 12% mva, gjeldende fra 15. april 2024.
+            </p>
+        </div>
+    );
 }

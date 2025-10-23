@@ -1,8 +1,12 @@
+import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
+
 export default function VilkarPage() {
   return (
     <main className="bg-white py-16">
       <div className="container mx-auto px-4 prose lg:prose-xl">
-        <h1>Transportvilkår for reisende med taxi</h1>
+        <AnimateOnScroll>
+          <h1>Transportvilkår for reisende med taxi</h1>
+        </AnimateOnScroll>
 
         <h2>§ 1 Transportvilkårenes anvendelse</h2>
         <p>Transportvilkårene er avtalevilkår mellom den reisende og taxifører. På alle forhold som ikke er regulert her, kommer norsk lov til anvendelse.</p>
