@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { Phone, Mail, Package, Zap } from 'lucide-react';
+import { Phone, Mail, Package, Zap, Clock, Shield } from 'lucide-react';
 import { getImagePath } from '@/lib/utils';
 import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 
 export default function PakketransportPage() {
   return (
-    <main className="bg-gray-50">
+    <div className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
@@ -30,37 +30,45 @@ export default function PakketransportPage() {
           <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate" className="md:col-span-2">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-3xl font-bold text-primary-2 mb-4">Rask og Sikker Levering i Mjøsområdet</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Trenger du å sende en pakke raskt og trygt? 06565 Taxi fungerer som en effektiv budbil- og varetaxitjeneste i hele Mjøsområdet. Med 30 biler i daglig trafikk mellom Gjøvik, Lillehammer, Moelv, Brumunddal, Hamar og Elverum, kan vi garantere en pålitelig levering.
-            </p>
-            <div className="prose lg:prose-xl max-w-none">
-              <h3>Hva vi transporterer:</h3>
-              <p>Vi tar på oss transport av en rekke varer, inkludert:</p>
-              <ul className="grid grid-cols-2 gap-x-4">
-                <li>Småpakker</li>
-                <li>Verdisendinger</li>
-                <li>Bildeler</li>
-                <li>Dokumenter</li>
-                <li>Cateringmat</li>
-                <li>Blomster</li>
-              </ul>
+              <p className="text-lg text-gray-700 mb-6">
+                Trenger du å sende en pakke raskt og trygt? 06565 Taxi fungerer som en effektiv budbil- og varetaxitjeneste i hele Mjøsområdet. Med 30 biler i daglig trafikk mellom Gjøvik, Lillehammer, Moelv, Brumunddal, Hamar og Elverum, kan vi garantere en pålitelig levering.
+              </p>
+              <div className="prose lg:prose-xl max-w-none">
+                <h3>Hva vi transporterer:</h3>
+                <p>Vi tar på oss transport av en rekke varer, inkludert:</p>
+                <ul className="grid grid-cols-2 gap-x-4">
+                  <li>Småpakker</li>
+                  <li>Verdisendinger</li>
+                  <li>Bildeler</li>
+                  <li>Dokumenter</li>
+                  <li>Cateringmat</li>
+                  <li>Blomster</li>
+                </ul>
 
-              <div className="flex items-start my-6 p-4 bg-blue-50 rounded-lg">
-                <Zap className="w-10 h-10 text-accent-1 mr-4 mt-1 flex-shrink-0" />
-                <div>
-                  <h4>Ekspresslevering</h4>
-                  <p>For sendinger som haster, tilbyr vi ekspresspakker som kjøres direkte til mottaker uten samkjøring. Vi kan gi en tidsgaranti for disse oppdragene.</p>
+                <div className="grid md:grid-cols-2 gap-6 my-8">
+                  <div className="p-6 bg-yellow-50 rounded-lg">
+                    <Zap className="w-8 h-8 text-yellow-600 mb-3" />
+                    <h4 className="font-semibold text-yellow-800 mb-2">Ekspresslevering</h4>
+                    <p className="text-sm text-yellow-700">For sendinger som haster, tilbyr vi ekspresspakker som kjøres direkte til mottaker uten samkjøring. Vi kan gi en tidsgaranti for disse oppdragene.</p>
+                  </div>
+                  <div className="p-6 bg-blue-50 rounded-lg">
+                    <Package className="w-8 h-8 text-blue-600 mb-3" />
+                    <h4 className="font-semibold text-blue-800 mb-2">Standard Levering</h4>
+                    <p className="text-sm text-blue-700">For mindre tidskritiske pakker, kan vi samkjøre transporten med andre oppdrag for en mer kostnadseffektiv løsning.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start p-4 bg-gray-100 rounded-lg">
-                <Package className="w-10 h-10 text-accent-1 mr-4 mt-1 flex-shrink-0" />
-                <div>
-                  <h4>Standard Levering</h4>
-                  <p>For mindre tidskritiske pakker, kan vi samkjøre transporten med andre oppdrag for en mer kostnadseffektiv løsning.</p>
-                </div>
+                <h3>Dekningsområde</h3>
+                <p>Vi dekker hele Mjøsområdet med daglig trafikk:</p>
+                <ul className="grid grid-cols-2 gap-x-4">
+                  <li>Lillehammer</li>
+                  <li>Gjøvik</li>
+                  <li>Moelv</li>
+                  <li>Brumunddal</li>
+                  <li>Hamar</li>
+                  <li>Elverum</li>
+                </ul>
               </div>
-            </div>
             </div>
           </AnimateOnScroll>
 
@@ -83,6 +91,6 @@ export default function PakketransportPage() {
           </AnimateOnScroll>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

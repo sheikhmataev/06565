@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { Phone, Mail, Users, Bus } from 'lucide-react';
+import { Phone, Mail, Users, Bus, Calendar, MapPin } from 'lucide-react';
 import { getImagePath } from '@/lib/utils';
 import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 
 export default function GruppetransportPage() {
   return (
-    <main className="bg-gray-50">
+    <div className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
@@ -31,7 +31,7 @@ export default function GruppetransportPage() {
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-3xl font-bold text-primary-2 mb-4">Samle Gruppen for en Felles Reise</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Enten dere er en vennegjeng, en bedrift på tur, eller en familie som skal på utflukt, har 06565 Taxi løsningen for dere. Med våre moderne minibusser og maxi-taxier kan vi transportere grupper komfortabelt og effektivt.
+                Enten dere er en vennegeng, en bedrift på tur, eller en familie som skal på utflukt, har 06565 Taxi løsningen for dere. Med våre moderne minibusser og maxi-taxier kan vi transportere grupper komfortabelt og effektivt.
               </p>
               <div className="prose lg:prose-xl max-w-none">
                 <h3>Våre Gruppetransporttjenester:</h3>
@@ -50,6 +50,19 @@ export default function GruppetransportPage() {
                   <div>
                     <h4>Moderne Kjøretøypark</h4>
                     <p>Våre minibusser har plass til opptil 16 personer og er utstyrt for en behagelig reise, uansett distanse.</p>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 my-8">
+                  <div className="p-6 bg-green-50 rounded-lg">
+                    <Calendar className="w-8 h-8 text-green-600 mb-3" />
+                    <h4 className="font-semibold text-green-800 mb-2">Forhåndsbestilling</h4>
+                    <p className="text-sm text-green-700">Nødvendig for større grupper for å sikre riktig kjøretøy</p>
+                  </div>
+                  <div className="p-6 bg-blue-50 rounded-lg">
+                    <MapPin className="w-8 h-8 text-blue-600 mb-3" />
+                    <h4 className="font-semibold text-blue-800 mb-2">Fleksibel Rute</h4>
+                    <p className="text-sm text-blue-700">Vi tilpasser ruten etter gruppens behov og ønsker</p>
                   </div>
                 </div>
 
@@ -77,6 +90,6 @@ export default function GruppetransportPage() {
           </AnimateOnScroll>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { Phone, Mail, Map, Users } from 'lucide-react';
+import { Phone, Mail, Map, Users, Camera, Star } from 'lucide-react';
 import { getImagePath } from '@/lib/utils';
 import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 
 export default function SightseeingPage() {
   return (
-    <main className="bg-gray-50">
+    <div className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-80 bg-gray-900">
         <div className="relative w-full h-full">
@@ -30,29 +30,36 @@ export default function SightseeingPage() {
           <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate" className="md:col-span-2">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-3xl font-bold text-primary-2 mb-4">Opplev Lillehammer med en Lokal Guide</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Ønsker du å oppleve det beste av Lillehammer og omegn? Våre sightseeingturer gir deg en unik og personlig opplevelse. Våre erfarne sjåfører er ikke bare eksperter på veiene, men også kunnskapsrike guider som kan vise deg både kjente attraksjoner og skjulte perler.
-            </p>
-            <div className="prose lg:prose-xl max-w-none">
-              <h3>Fleksibelt og Individuelt</h3>
-              <p>I motsetning til faste bussruter, tilbyr våre sightseeingturer full fleksibilitet. Du bestemmer tempoet og hvilke steder du ønsker å besøke. Vi skreddersyr turen etter dine interesser, enten du vil se OL-anleggene, Maihaugen, eller bare nyte den vakre naturen.</p>
-              
-              <div className="flex items-start my-6">
-                <Users className="w-10 h-10 text-accent-1 mr-4 mt-1 flex-shrink-0" />
-                <div>
-                  <h4>Moderne Minibusser</h4>
-                  <p>Vi benytter våre topp moderne maxi-taxier og minibusser, som sikrer en komfortabel reise for både små og store grupper.</p>
+              <p className="text-lg text-gray-700 mb-6">
+                Ønsker du å oppleve det beste av Lillehammer og omegn? Våre sightseeingturer gir deg en unik og personlig opplevelse. Våre erfarne sjåfører er ikke bare eksperter på veiene, men også kunnskapsrike guider som kan vise deg både kjente attraksjoner og skjulte perler.
+              </p>
+              <div className="prose lg:prose-xl max-w-none">
+                <h3>Fleksibelt og Individuelt</h3>
+                <p>I motsetning til faste bussruter, tilbyr våre sightseeingturer full fleksibilitet. Du bestemmer tempoet og hvilke steder du ønsker å besøke. Vi skreddersyr turen etter dine interesser, enten du vil se OL-anleggene, Maihaugen, eller bare nyte den vakre naturen.</p>
+                
+                <div className="grid md:grid-cols-2 gap-6 my-8">
+                  <div className="p-6 bg-blue-50 rounded-lg">
+                    <Users className="w-8 h-8 text-blue-600 mb-3" />
+                    <h4 className="font-semibold text-blue-800 mb-2">Moderne Minibusser</h4>
+                    <p className="text-sm text-blue-700">Vi benytter våre topp moderne maxi-taxier og minibusser, som sikrer en komfortabel reise for både små og store grupper.</p>
+                  </div>
+                  <div className="p-6 bg-green-50 rounded-lg">
+                    <Map className="w-8 h-8 text-green-600 mb-3" />
+                    <h4 className="font-semibold text-green-800 mb-2">Kjentmannsprøve</h4>
+                    <p className="text-sm text-green-700">Alle våre sjåfører har bestått kjentmannsprøve og behersker både norsk og engelsk, slik at du er garantert en informativ og hyggelig tur.</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start">
-                <Map className="w-10 h-10 text-accent-1 mr-4 mt-1 flex-shrink-0" />
-                <div>
-                  <h4>Kjentmannsprøve</h4>
-                  <p>Alle våre sjåfører har bestått kjentmannsprøve og behersker både norsk og engelsk, slik at du er garantert en informativ og hyggelig tur.</p>
-                </div>
+                <h3>Populære Destinasjoner</h3>
+                <ul className="grid grid-cols-2 gap-x-4">
+                  <li>OL-anleggene</li>
+                  <li>Maihaugen</li>
+                  <li>Hunderfossen Familiepark</li>
+                  <li>Lysgårdsbakken</li>
+                  <li>Skibladner</li>
+                  <li>Norges Olympiske Museum</li>
+                </ul>
               </div>
-            </div>
             </div>
           </AnimateOnScroll>
 
@@ -75,6 +82,6 @@ export default function SightseeingPage() {
           </AnimateOnScroll>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

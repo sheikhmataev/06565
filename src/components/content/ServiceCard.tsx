@@ -1,14 +1,16 @@
 import React from "react";
+import Link from 'next/link';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  href?: string;
 }
 
-export default function ServiceCard({ icon, title, description }: ServiceCardProps) {
-  return (
-    <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 flex flex-col items-start space-y-6 group transition-all duration-500 ease-out shadow-xl hover:shadow-2xl hover:-translate-y-3 border border-white/30 h-full relative overflow-hidden">
+export default function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
+  const CardContent = () => (
+    <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-8 flex flex-col items-start space-y-6 group transition-all duration-500 ease-out shadow-xl hover:shadow-2xl hover:-translate-y-3 border border-white/30 h-full relative overflow-hidden cursor-pointer">
       {/* Gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-2/5 via-transparent to-accent-3/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
@@ -33,4 +35,14 @@ export default function ServiceCard({ icon, title, description }: ServiceCardPro
       <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-accent-2/20 transition-all duration-500"></div>
     </div>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        <CardContent />
+      </Link>
+    );
+  }
+
+  return <CardContent />;
 }
