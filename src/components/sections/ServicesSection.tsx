@@ -60,7 +60,12 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <AnimateOnScroll key={index} delay={index * 0.1} animationType="fadeInUpWithRotate">
-              <ServiceCard icon={service.icon} title={service.title} description={service.description} href={service.href} />
+              <ServiceCard 
+                icon={service.icon} 
+                title={service.title} 
+                description={service.description} 
+                href={service.href}
+              />
             </AnimateOnScroll>
           ))}
         </div>

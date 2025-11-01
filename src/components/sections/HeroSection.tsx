@@ -3,15 +3,27 @@
 import { MapPin, ArrowRight, Clock, Shield, Users } from 'lucide-react';
 import AnimatedGradientBackground from '../layout/AnimatedGradientBackground';
 import ShapeDivider from '../layout/ShapeDivider';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Counter3D with SSR disabled
+const Counter3D = dynamic(() => import('../3d/Counter3D'), {
+  ssr: false,
+  loading: () => <span className="text-3xl md:text-4xl font-bold text-accent-2">0</span>,
+});
 
 export default function HeroSection() {
   return (
     <section className="relative text-white overflow-hidden">
       <div className="pt-24 pb-20">
         <AnimatedGradientBackground />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-1/80 via-primary-1/70 to-primary-2/60"></div>
+        {/* Optional: CSS-based subtle background effects instead of 3D */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-2/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-3/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-1/80 via-primary-1/70 to-primary-2/60 z-10"></div>
         
-        <div className="relative container mx-auto px-4 pt-2 pb-12 md:pt-4 md:pb-16 flex flex-col items-center text-center">
+        <div className="relative z-20 container mx-auto px-4 pt-2 pb-12 md:pt-4 md:pb-16 flex flex-col items-center text-center">
           {/* Enhanced Typography with Better Hierarchy */}
           <div className="mb-4 max-w-5xl">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[0.9] tracking-tight">
@@ -84,22 +96,30 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Quick Stats */}
+          {/* Quick Stats with 3D Counter Animation */}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">40+</div>
+              <div className="mb-2 flex items-center justify-center">
+                <Counter3D value={40} suffix="+" />
+              </div>
               <div className="text-sm md:text-base opacity-80">Moderne biler</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">24/7</div>
+              <div className="mb-2 flex items-center justify-center">
+                <span className="text-3xl md:text-4xl font-bold text-accent-2">24/7</span>
+              </div>
               <div className="text-sm md:text-base opacity-80">Tilgjengelighet</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">25+</div>
+              <div className="mb-2 flex items-center justify-center">
+                <Counter3D value={25} suffix="+" />
+              </div>
               <div className="text-sm md:text-base opacity-80">Års erfaring</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-2 mb-2">100%</div>
+              <div className="mb-2 flex items-center justify-center">
+                <Counter3D value={100} suffix="%" />
+              </div>
               <div className="text-sm md:text-base opacity-80">Trygg transport</div>
             </div>
           </div>
