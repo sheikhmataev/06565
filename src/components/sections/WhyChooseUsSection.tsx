@@ -28,11 +28,11 @@ const features = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="bg-gray-50 py-10">
+    <section className="scroll-snap-section bg-gray-50 py-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Image Column */}
-          <AnimateOnScroll>
+          {/* Image Column - Slide in from left */}
+          <AnimateOnScroll animationType="slideInLeft" duration={0.8} distance={80}>
             <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
               <div className="relative w-full h-full">
                 <Image 
@@ -45,9 +45,9 @@ export default function WhyChooseUsSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-primary-1 via-transparent to-transparent opacity-70"></div>
             </div>
           </AnimateOnScroll>
-          {/* Content Column */}
+          {/* Content Column - Slide in from right */}
           <div className="space-y-8">
-            <AnimateOnScroll>
+            <AnimateOnScroll animationType="fadeInRight" duration={0.8} delay={0.1}>
               <div>
                 <h2 className="text-4xl font-bold text-primary-1 mb-4">Hvorfor Velge Oss?</h2>
                 <p className="text-lg text-gray-600">
@@ -57,7 +57,12 @@ export default function WhyChooseUsSection() {
             </AnimateOnScroll>
             <div className="space-y-6">
               {features.map((feature, index) => (
-                <AnimateOnScroll key={index} delay={index * 0.1}>
+                <AnimateOnScroll 
+                  key={index} 
+                  delay={index * 0.12 + 0.2} 
+                  animationType={index % 2 === 0 ? 'sweepIn' : 'fadeInRight'}
+                  duration={0.7}
+                >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 bg-white p-3 rounded-full shadow-md">
                       {feature.icon}

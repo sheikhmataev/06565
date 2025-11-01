@@ -11,7 +11,7 @@ const JobbPage = () => {
   return (
     <div className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-20">
-        <AnimateOnScroll>
+        <AnimateOnScroll animationType="zoomIn" duration={0.9}>
           <div className="max-w-3xl mx-auto text-center">
             <Briefcase className="h-12 w-12 text-accent-3 mx-auto mb-4" />
             <h1 className="text-4xl font-bold mb-4">Jobb hos Oss</h1>
@@ -23,23 +23,30 @@ const JobbPage = () => {
         </AnimateOnScroll>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
-          {/* Krav */}
-          <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate">
+          {/* Krav - Flip in from left */}
+          <AnimateOnScroll delay={0.1} animationType="flipIn" duration={0.8}>
             <div className="bg-primary-1 p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-accent-2 mb-4">Krav til sjåfører</h2>
               <ul className="space-y-3">
                 {requirements.map((req, index) => (
-                  <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-                    <span>{req}</span>
-                  </li>
+                  <AnimateOnScroll 
+                    key={index} 
+                    delay={index * 0.1 + 0.3} 
+                    animationType="fadeInLeft"
+                    duration={0.5}
+                  >
+                    <li className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                      <span>{req}</span>
+                    </li>
+                  </AnimateOnScroll>
                 ))}
               </ul>
             </div>
           </AnimateOnScroll>
 
-          {/* Søknadsprosess */}
-          <AnimateOnScroll delay={0.2} animationType="fadeInUpWithRotate">
+          {/* Søknadsprosess - Scale in from right */}
+          <AnimateOnScroll delay={0.2} animationType="scaleIn" duration={0.8}>
             <div className="bg-primary-1 p-8 rounded-lg">
               <h2 className="text-2xl font-bold text-accent-2 mb-4">Søknadsprosess</h2>
               <div className="space-y-4">

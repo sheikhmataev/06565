@@ -49,25 +49,42 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-gray-50 pt-12 pb-10">
+    <section className="scroll-snap-section bg-gray-50 pt-12 pb-10">
       <div className="container mx-auto px-4">
-        <AnimateOnScroll>
+        <AnimateOnScroll animationType="fadeInDown" duration={0.8}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary-1">Våre Tjenester</h2>
             <p className="text-lg text-gray-600 mt-2">Transportløsninger skreddersydd for dine behov.</p>
           </div>
         </AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <AnimateOnScroll key={index} delay={index * 0.1} animationType="fadeInUpWithRotate">
-              <ServiceCard 
-                icon={service.icon} 
-                title={service.title} 
-                description={service.description} 
-                href={service.href}
-              />
-            </AnimateOnScroll>
-          ))}
+          {services.map((service, index) => {
+            // Alternate animations based on position for visual variety
+            const isEven = index % 2 === 0;
+            const column = index % 4;
+            const animations = [
+              'scaleIn',      // Top-left: scale in
+              'fadeInUp',     // Top-right: fade up
+              'slideInLeft',  // Bottom-left: slide from left
+              'zoomIn',       // Bottom-right: zoom in
+            ];
+            
+            return (
+              <AnimateOnScroll 
+                key={index} 
+                delay={index * 0.08} 
+                animationType={animations[column] as any}
+                duration={0.7}
+              >
+                <ServiceCard 
+                  icon={service.icon} 
+                  title={service.title} 
+                  description={service.description} 
+                  href={service.href}
+                />
+              </AnimateOnScroll>
+            );
+          })}
         </div>
       </div>
     </section>

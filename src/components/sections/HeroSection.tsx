@@ -13,7 +13,7 @@ const Counter3D = dynamic(() => import('../3d/Counter3D'), {
 
 export default function HeroSection() {
   return (
-    <section className="relative text-white overflow-hidden">
+    <section className="scroll-snap-section relative text-white overflow-hidden">
       <div className="pt-24 pb-20">
         <AnimatedGradientBackground />
         {/* Optional: CSS-based subtle background effects instead of 3D */}

@@ -18,7 +18,7 @@ export default function PasienttransportPage() {
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <AnimateOnScroll>
+          <AnimateOnScroll animationType="zoomIn" duration={1.0}>
             <h1 className="text-5xl md:text-6xl font-bold text-white text-center">Pasienttransport</h1>
           </AnimateOnScroll>
         </div>
@@ -27,7 +27,7 @@ export default function PasienttransportPage() {
       {/* Content Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-12">
-          <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate" className="md:col-span-2">
+          <AnimateOnScroll delay={0.1} animationType="fadeInLeft" duration={0.8} distance={80} className="md:col-span-2">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-3xl font-bold text-primary-2 mb-4">Trygg og Pålitelig Transport</h2>
               <p className="text-lg text-gray-700 mb-6">
@@ -38,21 +38,27 @@ export default function PasienttransportPage() {
                 <p>Pasienter som av medisinske eller trafikale årsaker ikke kan benytte offentlig transport, kan ha rett til å få dekket deler av reiseutgiftene. Det er din behandler som vurderer og eventuelt rekvirerer transport for deg.</p>
                 
                 <div className="grid md:grid-cols-3 gap-6 my-8">
-                  <div className="text-center p-4 bg-blue-50 rounded-lg">
-                    <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-blue-800">Punktlighet</h4>
-                    <p className="text-sm text-blue-700">Vi sørger for at du ankommer din avtale i tide</p>
-                  </div>
-                  <div className="text-center p-4 bg-green-50 rounded-lg">
-                    <HeartPulse className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-green-800">Komfort</h4>
-                    <p className="text-sm text-green-700">Moderne, rene og komfortable biler</p>
-                  </div>
-                  <div className="text-center p-4 bg-purple-50 rounded-lg">
-                    <ShieldCheck className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-purple-800">Assistanse</h4>
-                    <p className="text-sm text-purple-700">Serviceinnstilte sjåfører hjelper deg</p>
-                  </div>
+                  {[
+                    { icon: Clock, bgColor: 'bg-blue-50', textColor: 'text-blue-600', titleColor: 'text-blue-800', descColor: 'text-blue-700', title: 'Punktlighet', desc: 'Vi sørger for at du ankommer din avtale i tide' },
+                    { icon: HeartPulse, bgColor: 'bg-green-50', textColor: 'text-green-600', titleColor: 'text-green-800', descColor: 'text-green-700', title: 'Komfort', desc: 'Moderne, rene og komfortable biler' },
+                    { icon: ShieldCheck, bgColor: 'bg-purple-50', textColor: 'text-purple-600', titleColor: 'text-purple-800', descColor: 'text-purple-700', title: 'Assistanse', desc: 'Serviceinnstilte sjåfører hjelper deg' },
+                  ].map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <AnimateOnScroll 
+                        key={index} 
+                        delay={index * 0.1 + 0.4} 
+                        animationType="bounceIn"
+                        duration={0.6}
+                      >
+                        <div className={`text-center p-4 ${feature.bgColor} rounded-lg`}>
+                          <Icon className={`w-8 h-8 ${feature.textColor} mx-auto mb-2`} />
+                          <h4 className={`font-semibold ${feature.titleColor}`}>{feature.title}</h4>
+                          <p className={`text-sm ${feature.descColor}`}>{feature.desc}</p>
+                        </div>
+                      </AnimateOnScroll>
+                    );
+                  })}
                 </div>
 
                 <h3>Mer informasjon</h3>
@@ -61,8 +67,8 @@ export default function PasienttransportPage() {
             </div>
           </AnimateOnScroll>
 
-          {/* Contact/Info Box */}
-          <AnimateOnScroll delay={0.2} animationType="fadeInUpWithRotate">
+          {/* Contact/Info Box - Scale in from right */}
+          <AnimateOnScroll delay={0.2} animationType="scaleIn" duration={0.8}>
             <div className="bg-white p-8 rounded-lg shadow-lg h-fit">
               <h3 className="text-2xl font-bold text-primary-2 mb-4">Bestilling og Spørsmål</h3>
               <p className="text-gray-700 mb-6">All bestilling av pasientreiser går via Pasientreiser. For andre henvendelser, kontakt oss gjerne.</p>

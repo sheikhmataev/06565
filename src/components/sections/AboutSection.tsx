@@ -7,8 +7,8 @@ export default function AboutSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <AnimateOnScroll>
+        {/* Section Header - Zoom in from center */}
+        <AnimateOnScroll animationType="zoomIn" duration={0.9}>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold text-primary-1 mb-6 leading-tight">
               Om <span className="bg-gradient-to-r from-accent-2 to-accent-3 bg-clip-text text-transparent">06565 Taxi</span>
@@ -20,8 +20,8 @@ export default function AboutSection() {
         </AnimateOnScroll>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <AnimateOnScroll animationType="fadeInUp" className="order-2 lg:order-1">
+          {/* Content - Fade in from left */}
+          <AnimateOnScroll animationType="fadeInLeft" duration={0.8} className="order-2 lg:order-1" delay={0.1}>
             <div className="space-y-8">
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
@@ -32,53 +32,40 @@ export default function AboutSection() {
                 </p>
               </div>
 
-              {/* Key Features */}
+              {/* Key Features - Staggered bounce in */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
-                  <div className="bg-accent-1/10 p-2 rounded-lg">
-                    <Shield className="w-6 h-6 text-accent-1" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-1 mb-1">Trygg Transport</h3>
-                    <p className="text-sm text-gray-600">Godkjente sjåfører og moderne biler</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
-                  <div className="bg-accent-2/10 p-2 rounded-lg">
-                    <Clock className="w-6 h-6 text-accent-2" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-1 mb-1">24/7 Service</h3>
-                    <p className="text-sm text-gray-600">Alltid tilgjengelig når du trenger oss</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
-                  <div className="bg-accent-3/10 p-2 rounded-lg">
-                    <Users className="w-6 h-6 text-accent-3" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-1 mb-1">Erfarne Sjåfører</h3>
-                    <p className="text-sm text-gray-600">Profesjonelle og serviceinnstilte</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
-                  <div className="bg-primary-1/10 p-2 rounded-lg">
-                    <MapPin className="w-6 h-6 text-primary-1" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-1 mb-1">Lokal Kunnskap</h3>
-                    <p className="text-sm text-gray-600">Kjenner området som ingen andre</p>
-                  </div>
-                </div>
+                {[
+                  { icon: Shield, bgColor: 'bg-accent-1/10', textColor: 'text-accent-1', title: 'Trygg Transport', desc: 'Godkjente sjåfører og moderne biler' },
+                  { icon: Clock, bgColor: 'bg-accent-2/10', textColor: 'text-accent-2', title: '24/7 Service', desc: 'Alltid tilgjengelig når du trenger oss' },
+                  { icon: Users, bgColor: 'bg-accent-3/10', textColor: 'text-accent-3', title: 'Erfarne Sjåfører', desc: 'Profesjonelle og serviceinnstilte' },
+                  { icon: MapPin, bgColor: 'bg-primary-1/10', textColor: 'text-primary-1', title: 'Lokal Kunnskap', desc: 'Kjenner området som ingen andre' },
+                ].map((feature, index) => {
+                  const Icon = feature.icon;
+                  return (
+                    <AnimateOnScroll 
+                      key={index} 
+                      delay={index * 0.1 + 0.3} 
+                      animationType="bounceIn"
+                      duration={0.6}
+                    >
+                      <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
+                        <div className={`${feature.bgColor} p-2 rounded-lg`}>
+                          <Icon className={`w-6 h-6 ${feature.textColor}`} />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-primary-1 mb-1">{feature.title}</h3>
+                          <p className="text-sm text-gray-600">{feature.desc}</p>
+                        </div>
+                      </div>
+                    </AnimateOnScroll>
+                  );
+                })}
               </div>
             </div>
           </AnimateOnScroll>
 
-          {/* Enhanced Image */}
-          <AnimateOnScroll delay={0.2} animationType="fadeInUp" className="order-1 lg:order-2">
+          {/* Enhanced Image - Blur in from right */}
+          <AnimateOnScroll delay={0.2} animationType="blurIn" duration={1.0} className="order-1 lg:order-2">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-accent-2/20 to-accent-3/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
