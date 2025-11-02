@@ -7,8 +7,8 @@ const TilgjengelighetPage = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-primary-1 mb-2">Tilgjengelighetserklæring</h1>
           <p className="text-lg text-gray-600">
-            Informasjon om tilgjengelighet kommer snart.
-          </p>
+          Informasjon om tilgjengelighet kommer snart.
+        </p>
         </div>
       </AnimateOnScroll>
     </div>

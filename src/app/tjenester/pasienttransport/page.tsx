@@ -55,7 +55,7 @@ export default function PasienttransportPage() {
                           <Icon className={`w-8 h-8 ${feature.textColor} mx-auto mb-2`} />
                           <h4 className={`font-semibold ${feature.titleColor}`}>{feature.title}</h4>
                           <p className={`text-sm ${feature.descColor}`}>{feature.desc}</p>
-                        </div>
+                  </div>
                       </AnimateOnScroll>
                     );
                   })}

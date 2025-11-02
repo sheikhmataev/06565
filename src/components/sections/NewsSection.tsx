@@ -16,14 +16,14 @@ export default function NewsSection() {
         </AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {recentPosts.map((post, index) => {
-            // Alternating animations for visual interest
-            const animations: any[] = ['flipIn', 'scaleIn', 'zoomIn'];
+            // Professional, consistent fade-in with subtle stagger
             return (
               <AnimateOnScroll 
                 key={index} 
-                delay={index * 0.15} 
-                animationType={animations[index % 3]}
-                duration={0.7}
+                delay={index * 0.08} 
+                animationType="fadeInUp"
+                duration={0.6}
+                distance={30}
               >
                 <BlogCard
                   image={post.image}

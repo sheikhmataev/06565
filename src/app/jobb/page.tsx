@@ -36,9 +36,9 @@ const JobbPage = () => {
                     duration={0.5}
                   >
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-                      <span>{req}</span>
-                    </li>
+                    <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                    <span>{req}</span>
+                  </li>
                   </AnimateOnScroll>
                 ))}
               </ul>

@@ -54,7 +54,7 @@ export default function SightseeingPage() {
                           <Icon className={`w-8 h-8 ${feature.textColor} mb-3`} />
                           <h4 className={`font-semibold ${feature.titleColor} mb-2`}>{feature.title}</h4>
                           <p className={`text-sm ${feature.descColor}`}>{feature.desc}</p>
-                        </div>
+                  </div>
                       </AnimateOnScroll>
                     );
                   })}
