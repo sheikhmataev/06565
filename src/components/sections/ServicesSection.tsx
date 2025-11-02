@@ -57,24 +57,16 @@ export default function ServicesSection() {
             <p className="text-lg text-gray-600 mt-2">Transportløsninger skreddersydd for dine behov.</p>
           </div>
         </AnimateOnScroll>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
-            // Alternate animations based on position for visual variety
-            const isEven = index % 2 === 0;
-            const column = index % 4;
-            const animations = [
-              'scaleIn',      // Top-left: scale in
-              'fadeInUp',     // Top-right: fade up
-              'slideInLeft',  // Bottom-left: slide from left
-              'zoomIn',       // Bottom-right: zoom in
-            ];
-            
+            // Professional, consistent fade-in with subtle stagger
             return (
               <AnimateOnScroll 
                 key={index} 
-                delay={index * 0.08} 
-                animationType={animations[column] as any}
-                duration={0.7}
+                delay={index * 0.06} 
+                animationType="fadeInUp"
+                duration={0.6}
+                distance={30}
               >
                 <ServiceCard 
                   icon={service.icon} 
@@ -82,7 +74,7 @@ export default function ServicesSection() {
                   description={service.description} 
                   href={service.href}
                 />
-              </AnimateOnScroll>
+            </AnimateOnScroll>
             );
           })}
         </div>

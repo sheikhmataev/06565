@@ -25,12 +25,12 @@ export default function NewsSection() {
                 duration={0.6}
                 distance={30}
               >
-                <BlogCard
-                  image={post.image}
-                  title={post.title}
-                  excerpt={post.excerpt}
-                />
-              </AnimateOnScroll>
+              <BlogCard
+                image={post.image}
+                title={post.title}
+                excerpt={post.excerpt}
+              />
+            </AnimateOnScroll>
             );
           })}
         </div>
