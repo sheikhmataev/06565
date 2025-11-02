@@ -124,7 +124,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        <ShapeDivider color="text-gray-50" />
+        <ShapeDivider color="text-white" />
       </div>
     </section>
   );
