@@ -6,8 +6,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-padding-top: 80px; /* Account for fixed header */
     overflow-y: scroll;
+  }
+  
+  /* Only enable scroll snap on homepage where scroll-snap-section exists */
+  html:has(body > div > main > section.scroll-snap-section) {
+    scroll-snap-type: y proximity;
   }
   
   body {
@@ -23,12 +28,26 @@
   }
 }
 
-/* Section Snap Scrolling - One scroll = One section */
+/* Section Snap Scrolling - Only on homepage */
 .scroll-snap-section {
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal; /* Changed from always to allow easier scrolling */
   min-height: 100vh;
   scroll-margin-top: 80px; /* Account for fixed header */
+}
+
+/* Ensure footer doesn't snap */
+footer {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+
+/* Page titles should start below fixed header */
+main > section:first-child:not(.scroll-snap-section) h1,
+main > div:first-child:not(.scroll-snap-section) h1,
+main h1:first-of-type {
+  scroll-margin-top: 100px;
+  padding-top: 20px;
 }
 
 /* Modern Text Shadows */

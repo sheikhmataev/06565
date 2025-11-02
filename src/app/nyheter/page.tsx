@@ -5,7 +5,7 @@ import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 export default function NyheterPage() {
   return (
     <main className="bg-gray-50">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 pt-24 pb-16 md:pt-28">
         <AnimateOnScroll animationType="zoomIn" duration={0.9}>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-primary-1">Nyhetsarkiv</h1>
@@ -24,14 +24,14 @@ export default function NyheterPage() {
                 animationType={animations[index % animations.length]}
                 duration={0.7}
               >
-                <div className="w-full">
-                  <BlogCard
-                    image={post.image}
-                    title={post.title}
-                    excerpt={post.excerpt}
-                  />
-                </div>
-              </AnimateOnScroll>
+              <div className="w-full">
+                <BlogCard
+                  image={post.image}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                />
+              </div>
+            </AnimateOnScroll>
             );
           })}
         </div>

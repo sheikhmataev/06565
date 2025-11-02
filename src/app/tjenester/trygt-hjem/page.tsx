@@ -7,7 +7,7 @@ export default function TrygtHjemPage() {
   return (
     <main className="bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-80 bg-gray-900">
+      <div className="relative h-80 bg-gray-900 mt-24 md:mt-28">
         <div className="relative w-full h-full">
           <Image
             src={getImagePath("/assets/trygthjem.png")}
@@ -25,7 +25,7 @@ export default function TrygtHjemPage() {
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 pb-16">
         <div className="grid md:grid-cols-3 gap-12">
           <AnimateOnScroll delay={0.1} animationType="fadeInUpWithRotate" className="md:col-span-2">
             <div className="bg-white p-8 rounded-lg shadow-lg">

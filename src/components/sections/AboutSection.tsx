@@ -5,7 +5,7 @@ import { Shield, Clock, Users, MapPin } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="container mx-auto px-4">
         {/* Section Header - Zoom in from center */}
         <AnimateOnScroll animationType="zoomIn" duration={0.9}>
@@ -48,15 +48,15 @@ export default function AboutSection() {
                       animationType="bounceIn"
                       duration={0.6}
                     >
-                      <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
+                <div className="flex items-start space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50">
                         <div className={`${feature.bgColor} p-2 rounded-lg`}>
                           <Icon className={`w-6 h-6 ${feature.textColor}`} />
-                        </div>
-                        <div>
+                  </div>
+                  <div>
                           <h3 className="font-semibold text-primary-1 mb-1">{feature.title}</h3>
                           <p className="text-sm text-gray-600">{feature.desc}</p>
-                        </div>
-                      </div>
+                  </div>
+                </div>
                     </AnimateOnScroll>
                   );
                 })}

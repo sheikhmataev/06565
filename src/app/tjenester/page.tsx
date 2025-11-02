@@ -3,7 +3,9 @@ import ServicesSection from '@/components/sections/ServicesSection';
 export default function TjenesterPage() {
   return (
     <main>
-      <ServicesSection />
+      <div className="pt-24 md:pt-28">
+        <ServicesSection />
+      </div>
     </main>
   );
 }

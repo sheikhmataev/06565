@@ -10,7 +10,7 @@ const JobbPage = () => {
 
   return (
     <div className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 pt-24 pb-20 md:pt-28">
         <AnimateOnScroll animationType="zoomIn" duration={0.9}>
           <div className="max-w-3xl mx-auto text-center">
             <Briefcase className="h-12 w-12 text-accent-3 mx-auto mb-4" />

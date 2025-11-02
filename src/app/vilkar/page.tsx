@@ -3,7 +3,7 @@ import AnimateOnScroll from '@/components/animations/AnimateOnScroll';
 export default function VilkarPage() {
   return (
     <main className="bg-white py-16">
-      <div className="container mx-auto px-4 prose lg:prose-xl">
+      <div className="container mx-auto px-4 pt-24 pb-16 md:pt-28 prose lg:prose-xl">
         <AnimateOnScroll>
           <h1>Transportvilkår for reisende med taxi</h1>
         </AnimateOnScroll>

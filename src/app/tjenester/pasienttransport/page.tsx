@@ -25,7 +25,7 @@ export default function PasienttransportPage() {
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 pt-24 pb-16 md:pt-28">
         <div className="grid md:grid-cols-3 gap-12">
           <AnimateOnScroll delay={0.1} animationType="fadeInLeft" duration={0.8} distance={80} className="md:col-span-2">
             <div className="bg-white p-8 rounded-lg shadow-lg">
